@@ -1,67 +1,46 @@
 
-drop user 'apple'@'localhost';
-
-/*
-创建schema
-*/
-drop database if exists apple;
+/* 创建schema */
+drop   database if exists apple;
 create database apple character set utf8;
 
-/*
-创建用户
-*/
-create user 'apple'@'localhost' identified by 'apple';
-GRANT all privileges ON apple.* TO 'apple'@'localhost'; 
+/* 创建用户 */
+drop   user 'banana'@'localhost';
+create user 'banana'@'localhost' identified by 'banana';
+GRANT all privileges ON apple.* TO 'banana'@'localhost'; 
 
-/*
-使用schema
-*/
+/* 使用schema */
 use apple;
 
-/*帐户表*/
-
+/* 帐户表 */
 DROP TABLE IF EXISTS account;
 CREATE TABLE account (
-  ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  name VARCHAR(128) NOT NULL,
-  type VARCHAR(128) NOT NULL,
-  balance DOUBLE NOT NULL,
+  id     INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  name   VARCHAR(128)     NOT NULL,
+  type   VARCHAR(128)     NOT NULL,
+  remark VARCHAR(4000),
   PRIMARY KEY (ID)
 );
 
-/*项目表*/
-
-DROP TABLE IF EXISTS item;
-CREATE TABLE item (
-  ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  name VARCHAR(45) NOT NULL,
-  pid INTEGER UNSIGNED,
-  type VARCHAR(16) NOT NULL,
+/* 分类表：收入，支出，转账 */
+DROP TABLE IF EXISTS category;
+CREATE TABLE category (
+  id     INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  pid    INTEGER UNSIGNED,
+  name   VARCHAR(45) NOT NULL,
+  type   VARCHAR(16) NOT NULL,
   PRIMARY KEY (ID)
 );
-/*
-记录表
-*/
+
+/* 记录表 */
 DROP TABLE IF EXISTS record;
 CREATE TABLE record (
-  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  item_id INTEGER UNSIGNED NOT NULL,
-  acct_id INTEGER UNSIGNED NOT NULL,
-  amount DOUBLE NOT NULL,
-  remark VARCHAR(4000),
-  time DATETIME NOT NULL,
-  PRIMARY KEY (id)
-);
-/*
-转帐表
-*/
-DROP TABLE IF EXISTS transfer;
-CREATE TABLE transfer (
-  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  source_acct_id INTEGER UNSIGNED NOT NULL,
-  target_acct_id INTEGER UNSIGNED NOT NULL,
-  amount DOUBLE NOT NULL,
-  remark VARCHAR(4000),
-  time DATETIME NOT NULL,
+  id INTEGER        UNSIGNED NOT NULL AUTO_INCREMENT,
+  category_id       INTEGER UNSIGNED NOT NULL,
+  category_type     VARCHAR(16) NOT NULL, /* 从category表上冗余过来的字段，便于统计 */
+  flowout_acct_id   INTEGER UNSIGNED,
+  flowin_acct_id    INTEGER UNSIGNED,
+  money DOUBLE      NOT NULL,
+  time DATETIME     NOT NULL,
+  remark            VARCHAR(4000),
   PRIMARY KEY (id)
 );
