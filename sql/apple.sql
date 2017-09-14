@@ -11,13 +11,23 @@ GRANT all privileges ON apple.* TO 'banana'@'localhost';
 /* 使用schema */
 use apple;
 
+/* 人员机构表 */
+DROP TABLE IF EXISTS role;
+CREATE TABLE role (
+  id     INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  name   VARCHAR(128)     NOT NULL,
+  type   VARCHAR(32)      NOT NULL,
+  PRIMARY KEY (ID)
+);
+
 /* 帐户表 */
 DROP TABLE IF EXISTS account;
 CREATE TABLE account (
-  id     INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  name   VARCHAR(128)     NOT NULL,
-  type   VARCHAR(128)     NOT NULL,
-  remark VARCHAR(4000),
+  id        INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  name      VARCHAR(128)     NOT NULL,
+  type      VARCHAR(32)      NOT NULL,
+  role_id   INTEGER UNSIGNED,
+  remark    VARCHAR(4000),
   PRIMARY KEY (ID)
 );
 
@@ -26,8 +36,8 @@ DROP TABLE IF EXISTS category;
 CREATE TABLE category (
   id     INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   pid    INTEGER UNSIGNED,
-  name   VARCHAR(45) NOT NULL,
-  type   VARCHAR(16) NOT NULL,
+  name   VARCHAR(128) NOT NULL,
+  type   VARCHAR(32) NOT NULL,
   PRIMARY KEY (ID)
 );
 
@@ -36,7 +46,6 @@ DROP TABLE IF EXISTS record;
 CREATE TABLE record (
   id INTEGER        UNSIGNED NOT NULL AUTO_INCREMENT,
   category_id       INTEGER UNSIGNED NOT NULL,
-  category_type     VARCHAR(16) NOT NULL, /* 从category表上冗余过来的字段，便于统计 */
   flowout_acct_id   INTEGER UNSIGNED,
   flowin_acct_id    INTEGER UNSIGNED,
   money DOUBLE      NOT NULL,
