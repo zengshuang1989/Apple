@@ -1,4 +1,4 @@
-package zxy.apple.dao;
+package edu.zxy.apple.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import zxy.apple.pojo.Role;
+import edu.zxy.apple.entity.Role;
 
 public class RoleDaoImpl implements RoleDao {
 

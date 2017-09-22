@@ -1,4 +1,4 @@
-package zxy.apple.vo;
+package edu.zxy.apple.vo;
 
 public class RoleVO {
 

@@ -1,4 +1,4 @@
-package zxy.apple.controller;
+package edu.zxy.apple.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import zxy.apple.dao.RoleDao;
-import zxy.apple.pojo.Role;
-import zxy.apple.vo.RoleVO;
+import edu.zxy.apple.dao.RoleDao;
+import edu.zxy.apple.entity.Role;
+import edu.zxy.apple.vo.RoleVO;
 
 @Controller
 public class HelloController {
