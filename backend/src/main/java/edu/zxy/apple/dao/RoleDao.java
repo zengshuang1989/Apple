@@ -1,8 +1,8 @@
-package zxy.apple.dao;
+package edu.zxy.apple.dao;
 
 import java.util.List;
 
-import zxy.apple.pojo.Role;
+import edu.zxy.apple.entity.Role;
 
 public interface RoleDao {
 	public List<Role> getAll();

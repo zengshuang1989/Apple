@@ -1,4 +1,4 @@
-package zxy.apple.pojo;
+package edu.zxy.apple.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
