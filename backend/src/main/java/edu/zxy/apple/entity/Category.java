@@ -1,41 +1,35 @@
 package edu.zxy.apple.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="role")
-public class Role {
+public class Category {
 	private int id;
+	private int pid;
 	private String name;
 	
 	@Enumerated(EnumType.STRING)
 	private String type;
-	
-	@Id
-    @GeneratedValue
-    @Column(name="id")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	@Column(name="name")
+	public int getPid() {
+		return pid;
+	}
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@Column(name="type")
 	public String getType() {
 		return type;
 	}
