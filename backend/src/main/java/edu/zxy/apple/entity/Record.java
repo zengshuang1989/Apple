@@ -1,59 +1,73 @@
 package edu.zxy.apple.entity;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Record {
-	private int id;
-	private int categoryId;
-	private int flowoutAcctId;
-	private int flowinAcctId;
-	private double money;
-	private Date time;
+	@Id
+    @GeneratedValue
+	private Integer id;
+	
+	private Integer categoryId;
+	private Integer flowoutAcctId;
+	private Integer flowinAcctId;
+	
+	private BigDecimal money;
+	
 	private String remark;
-	public int getId() {
+	
+	@FunctionCreationDatetime
+	private Date createdDatetime;
+	
+	@FunctionLastUpdatedDatetime
+	private Date lastUpdatedDatetime;
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
-	public int getFlowoutAcctId() {
+	public Integer getFlowoutAcctId() {
 		return flowoutAcctId;
 	}
-	public void setFlowoutAcctId(int flowoutAcctId) {
+	public void setFlowoutAcctId(Integer flowoutAcctId) {
 		this.flowoutAcctId = flowoutAcctId;
 	}
-	public int getFlowinAcctId() {
+	public Integer getFlowinAcctId() {
 		return flowinAcctId;
 	}
-	public void setFlowinAcctId(int flowinAcctId) {
+	public void setFlowinAcctId(Integer flowinAcctId) {
 		this.flowinAcctId = flowinAcctId;
 	}
-	public double getMoney() {
+	public BigDecimal getMoney() {
 		return money;
 	}
-	public void setMoney(double money) {
+	public void setMoney(BigDecimal money) {
 		this.money = money;
-	}
-	public Date getTime() {
-		return time;
-	}
-	public void setTime(Date time) {
-		this.time = time;
 	}
 	public String getRemark() {
 		return remark;
 	}
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+	public Date getCreatedDatetime() {
+		return createdDatetime;
+	}
+	public Date getLastUpdatedDatetime() {
+		return lastUpdatedDatetime;
 	}
 	
 	

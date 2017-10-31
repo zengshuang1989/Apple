@@ -1,27 +1,42 @@
 package edu.zxy.apple.entity;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Category {
-	private int id;
-	private int pid;
+	@Id
+    @GeneratedValue
+	private Integer id;
+	
+	private Integer pid;
+	
 	private String name;
 	
 	@Enumerated(EnumType.STRING)
 	private String type;
-	public int getId() {
+	
+	@FunctionCreationDatetime
+	private Date createdDatetime;
+	
+	@FunctionLastUpdatedDatetime
+	private Date lastUpdatedDatetime;
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getPid() {
+	public Integer getPid() {
 		return pid;
 	}
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
 	public String getName() {
@@ -35,6 +50,12 @@ public class Category {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public Date getCreatedDatetime() {
+		return createdDatetime;
+	}
+	public Date getLastUpdatedDatetime() {
+		return lastUpdatedDatetime;
 	}
 	
 	

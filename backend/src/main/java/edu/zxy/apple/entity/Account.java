@@ -1,26 +1,47 @@
 package edu.zxy.apple.entity;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 
 @Entity
 public class Account {
-	private int id;
+	
+	@Id
+    @GeneratedValue
+	private Integer id;
+	
 	private String name;
 	
 	@Enumerated(EnumType.STRING)
 	private String type;
-	private int roleId;
+	
+	private Integer roleId;
+	
 	private String remark;
 	
+	private BigDecimal totalFlowIn;
+	
+	private BigDecimal totalFlowOut;
+	
+	@FunctionCreationDatetime
+	private Date createdDatetime;
+	
+	@FunctionLastUpdatedDatetime
+	private Date lastUpdatedDatetime;
+	
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -39,12 +60,12 @@ public class Account {
 	public void setType(String type) {
 		this.type = type;
 	}
-
-	public int getRoleId() {
+	
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 
@@ -56,6 +77,15 @@ public class Account {
 		this.remark = remark;
 	}
 
-	
 
+	public Date getCreatedDatetime() {
+		return createdDatetime;
+	}
+
+	public Date getLastUpdatedDatetime() {
+		return lastUpdatedDatetime;
+	}
+
+	
 }
+
