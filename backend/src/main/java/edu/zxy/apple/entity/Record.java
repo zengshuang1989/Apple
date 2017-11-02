@@ -27,6 +27,7 @@ public class Record {
 	@FunctionLastUpdatedDatetime
 	private Date lastUpdatedDatetime;
 	
+	
 	public Integer getId() {
 		return id;
 	}

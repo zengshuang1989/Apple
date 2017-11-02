@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Formula;
+
 
 @Entity
 public class Account {
@@ -26,17 +28,21 @@ public class Account {
 	
 	private String remark;
 	
-	private BigDecimal totalFlowIn;
-	
-	private BigDecimal totalFlowOut;
-	
 	@FunctionCreationDatetime
 	private Date createdDatetime;
 	
 	@FunctionLastUpdatedDatetime
 	private Date lastUpdatedDatetime;
 	
-
+	@Formula(value = "(select sum(t.money) from record t where t.flowin_acct_id = id)")
+	private BigDecimal totalFlowIn;
+	
+	@Formula(value = "(select sum(t.money) from record t where t.flowout_acct_id = id)")
+	private BigDecimal totalFlowOut;
+	
+	@Formula(value = "totalFlowIn-totalFlowOut")
+	private BigDecimal balance;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -86,6 +92,18 @@ public class Account {
 		return lastUpdatedDatetime;
 	}
 
-	
+	public BigDecimal getTotalFlowIn() {
+		return totalFlowIn;
+	}
+
+	public BigDecimal getTotalFlowOut() {
+		return totalFlowOut;
+	}
+
+	public BigDecimal getBalance() {
+		return balance;
+	}
+
+
 }
 
