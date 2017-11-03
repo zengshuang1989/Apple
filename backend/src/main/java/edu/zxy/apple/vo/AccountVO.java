@@ -1,56 +1,32 @@
-package edu.zxy.apple.entity;
+package edu.zxy.apple.vo;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.Formula;
-
 import edu.zxy.apple.enums.AccountType;
 
-
-@Entity
-@Table(name="account")
-public class Account {
+public class AccountVO {
 	
-	@Id
-    @GeneratedValue
 	private Integer id;
 	
 	private String name;
 	
-	@Enumerated(EnumType.STRING)
 	private AccountType type;   
 	
-	@Column( name = "role_id" )
 	private Integer roleId;
 	
 	private String remark;
 	
-	@Column( name = "create_time" )
-	@FunctionCreationDatetime
 	private Date createdDatetime;
 	
-	@Column( name = "update_time" )
-	@FunctionLastUpdatedDatetime
 	private Date lastUpdatedDatetime;
 	
-	@Formula(value = "(select sum(t.money) from record t where t.flowin_acct_id = id)")
 	private BigDecimal totalFlowIn;
 	
-	@Formula(value = "(select sum(t.money) from record t where t.flowout_acct_id = id)")
 	private BigDecimal totalFlowOut;
 	
-	@Formula(value = "totalFlowIn-totalFlowOut")
 	private BigDecimal balance;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -71,10 +47,10 @@ public class Account {
 		return type;
 	}
 
-	public void setType(AccountType cash) {
-		this.type = cash;
+	public void setType(AccountType accountType) {
+		this.type = accountType;
 	}
-	
+
 	public Integer getRoleId() {
 		return roleId;
 	}
@@ -90,7 +66,6 @@ public class Account {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-
 
 	public Date getCreatedDatetime() {
 		return createdDatetime;
@@ -112,6 +87,26 @@ public class Account {
 		return balance;
 	}
 
+	public void setCreatedDatetime(Date createdDatetime) {
+		this.createdDatetime = createdDatetime;
+	}
 
+	public void setLastUpdatedDatetime(Date lastUpdatedDatetime) {
+		this.lastUpdatedDatetime = lastUpdatedDatetime;
+	}
+
+	public void setTotalFlowIn(BigDecimal totalFlowIn) {
+		this.totalFlowIn = totalFlowIn;
+	}
+
+	public void setTotalFlowOut(BigDecimal totalFlowOut) {
+		this.totalFlowOut = totalFlowOut;
+	}
+
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
+	
+	
+	
 }
-

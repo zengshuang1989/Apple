@@ -3,6 +3,7 @@ package edu.zxy.apple.entity;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,17 +14,24 @@ public class Record {
     @GeneratedValue
 	private Integer id;
 	
+	@Column( name = "category_id" )
 	private Integer categoryId;
+	
+	@Column( name = "flowout_acct_id" )
 	private Integer flowoutAcctId;
+	
+	@Column( name = "flowin_acct_id" )
 	private Integer flowinAcctId;
 	
 	private BigDecimal money;
 	
 	private String remark;
 	
+	@Column( name = "create_time" )
 	@FunctionCreationDatetime
 	private Date createdDatetime;
 	
+	@Column( name = "update_time" )
 	@FunctionLastUpdatedDatetime
 	private Date lastUpdatedDatetime;
 	

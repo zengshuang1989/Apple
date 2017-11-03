@@ -55,5 +55,8 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
     </bean>
     
     <bean id="RoleDao" class="edu.zxy.apple.dao.RoleDaoImpl">
-</bean>
+    </bean>
+    <bean id="AccountDao" class="edu.zxy.apple.dao.AccountDaoImpl">
+    </bean>
+
 </beans>

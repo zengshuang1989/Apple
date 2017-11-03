@@ -2,11 +2,14 @@ package edu.zxy.apple.entity;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import edu.zxy.apple.enums.CategoryType;
 
 @Entity
 public class Category {
@@ -19,11 +22,13 @@ public class Category {
 	private String name;
 	
 	@Enumerated(EnumType.STRING)
-	private String type;
+	private CategoryType type;
 	
+	@Column( name = "create_time" )
 	@FunctionCreationDatetime
 	private Date createdDatetime;
 	
+	@Column( name = "update_time" )
 	@FunctionLastUpdatedDatetime
 	private Date lastUpdatedDatetime;
 	
@@ -45,10 +50,10 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getType() {
+	public CategoryType getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(CategoryType type) {
 		this.type = type;
 	}
 	public Date getCreatedDatetime() {

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.zxy.apple.dao.RoleDao;
 import edu.zxy.apple.entity.Role;
+import edu.zxy.apple.enums.RoleType;
 import edu.zxy.apple.vo.RoleVO;
 
 @Controller
@@ -24,7 +25,7 @@ public class HelloController {
 	public @ResponseBody RoleVO addRole(@RequestBody RoleVO role) {
 		Role addRole = new Role();
 		addRole.setName("Bank of China");
-		addRole.setType("Orgnization");
+		addRole.setType(RoleType.INSTITUTION);
 		roleDao.add(addRole);
 		return role;
 	}
