@@ -1,15 +1,17 @@
 package edu.zxy.apple.entity;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 import org.hibernate.annotations.Formula;
 
@@ -21,7 +23,14 @@ import edu.zxy.apple.enums.AccountType;
 public class Account {
 	
 	@Id
-    @GeneratedValue
+	@TableGenerator(
+            name="acctGen", 
+            table="ID_GEN", 
+            pkColumnName="SEQUENCE_NAME", 
+            valueColumnName="NEXT_VAL", 
+            pkColumnValue="ACCT_ID", 
+            allocationSize=1)
+	@GeneratedValue(strategy =GenerationType.TABLE,generator="acctGen")
 	private Integer id;
 	
 	private String name;
@@ -36,11 +45,11 @@ public class Account {
 	
 	@Column( name = "create_time" )
 	@FunctionCreationDatetime
-	private Date createdDatetime;
+	private Timestamp createdDatetime;
 	
 	@Column( name = "update_time" )
 	@FunctionLastUpdatedDatetime
-	private Date lastUpdatedDatetime;
+	private Timestamp lastUpdatedDatetime;
 	
 	@Formula(value = "(select sum(t.money) from record t where t.flowin_acct_id = id)")
 	private BigDecimal totalFlowIn;
@@ -48,7 +57,7 @@ public class Account {
 	@Formula(value = "(select sum(t.money) from record t where t.flowout_acct_id = id)")
 	private BigDecimal totalFlowOut;
 	
-	@Formula(value = "totalFlowIn-totalFlowOut")
+	@Formula(value = "((select sum(t.money) from record t where t.flowin_acct_id = id)-(select sum(t.money) from record t where t.flowout_acct_id = id))")
 	private BigDecimal balance;
 	
 	public Integer getId() {
@@ -92,11 +101,11 @@ public class Account {
 	}
 
 
-	public Date getCreatedDatetime() {
+	public Timestamp getCreatedDatetime() {
 		return createdDatetime;
 	}
 
-	public Date getLastUpdatedDatetime() {
+	public Timestamp getLastUpdatedDatetime() {
 		return lastUpdatedDatetime;
 	}
 

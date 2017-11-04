@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 import edu.zxy.apple.enums.RoleType;
 
@@ -16,7 +18,14 @@ import edu.zxy.apple.enums.RoleType;
 @Table(name="role")
 public class Role {
 	@Id
-    @GeneratedValue
+	@TableGenerator(
+            name="roleGen", 
+            table="ID_GEN", 
+            pkColumnName="SEQUENCE_NAME", 
+            valueColumnName="NEXT_VAL", 
+            pkColumnValue="ROLE_ID", 
+            allocationSize=1)
+	@GeneratedValue(strategy =GenerationType.TABLE,generator="roleGen")
 	private Integer id;
 	
 	private String name;

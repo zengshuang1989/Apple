@@ -1,7 +1,7 @@
 package edu.zxy.apple.vo;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import edu.zxy.apple.enums.AccountType;
 
@@ -17,9 +17,9 @@ public class AccountVO {
 	
 	private String remark;
 	
-	private Date createdDatetime;
+	private Timestamp createdDatetime;
 	
-	private Date lastUpdatedDatetime;
+	private Timestamp lastUpdatedDatetime;
 	
 	private BigDecimal totalFlowIn;
 	
@@ -67,11 +67,11 @@ public class AccountVO {
 		this.remark = remark;
 	}
 
-	public Date getCreatedDatetime() {
+	public Timestamp getCreatedDatetime() {
 		return createdDatetime;
 	}
 
-	public Date getLastUpdatedDatetime() {
+	public Timestamp getLastUpdatedDatetime() {
 		return lastUpdatedDatetime;
 	}
 
@@ -87,11 +87,11 @@ public class AccountVO {
 		return balance;
 	}
 
-	public void setCreatedDatetime(Date createdDatetime) {
+	public void setCreatedDatetime(Timestamp createdDatetime) {
 		this.createdDatetime = createdDatetime;
 	}
 
-	public void setLastUpdatedDatetime(Date lastUpdatedDatetime) {
+	public void setLastUpdatedDatetime(Timestamp lastUpdatedDatetime) {
 		this.lastUpdatedDatetime = lastUpdatedDatetime;
 	}
 

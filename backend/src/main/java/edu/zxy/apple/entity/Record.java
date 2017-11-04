@@ -6,12 +6,21 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 
 @Entity
 public class Record {
 	@Id
-    @GeneratedValue
+	@TableGenerator(
+            name="recordGen", 
+            table="ID_GEN", 
+            pkColumnName="SEQUENCE_NAME", 
+            valueColumnName="NEXT_VAL", 
+            pkColumnValue="RECORD_ID", 
+            allocationSize=1)
+	@GeneratedValue(strategy =GenerationType.TABLE,generator="recordGen")
 	private Integer id;
 	
 	@Column( name = "category_id" )

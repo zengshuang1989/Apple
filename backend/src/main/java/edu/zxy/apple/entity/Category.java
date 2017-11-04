@@ -7,14 +7,23 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 
 import edu.zxy.apple.enums.CategoryType;
 
 @Entity
 public class Category {
 	@Id
-    @GeneratedValue
+	@TableGenerator(
+            name="categoryGen", 
+            table="ID_GEN", 
+            pkColumnName="SEQUENCE_NAME", 
+            valueColumnName="NEXT_VAL", 
+            pkColumnValue="CATEGORY_ID", 
+            allocationSize=1)
+	@GeneratedValue(strategy =GenerationType.TABLE,generator="categoryGen")
 	private Integer id;
 	
 	private Integer pid;

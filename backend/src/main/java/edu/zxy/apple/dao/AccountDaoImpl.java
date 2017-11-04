@@ -21,7 +21,7 @@ public class AccountDaoImpl implements AccountDao {
         session.beginTransaction();
         List<Account> all = null;
         try{
-            //all = session.createQuery("from account").getResultList();
+//            all = session.createQuery("from account").getResultList();
             Account acct = session.get(Account.class, 1);
             all = new ArrayList<Account>(1);
             all.add(acct);
