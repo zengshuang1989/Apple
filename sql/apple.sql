@@ -17,6 +17,8 @@ CREATE TABLE role (
   id     INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   name   VARCHAR(128)     NOT NULL,
   type   VARCHAR(32)      NOT NULL,
+  create_time timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  update_time timestamp NOT NULL default '2017-11-14 16:00:00',
   PRIMARY KEY (ID)
 );
 
@@ -28,6 +30,8 @@ CREATE TABLE account (
   type      VARCHAR(32)      NOT NULL,
   role_id   INTEGER UNSIGNED,
   remark    VARCHAR(4000),
+  create_time timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  update_time timestamp NOT NULL default '2017-11-14 16:00:00',
   PRIMARY KEY (ID)
 );
 
@@ -38,6 +42,8 @@ CREATE TABLE category (
   pid    INTEGER UNSIGNED,
   name   VARCHAR(128) NOT NULL,
   type   VARCHAR(32) NOT NULL,
+  create_time timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  update_time timestamp NOT NULL default '2017-11-14 16:00:00',
   PRIMARY KEY (ID)
 );
 
@@ -49,7 +55,14 @@ CREATE TABLE record (
   flowout_acct_id   INTEGER UNSIGNED,
   flowin_acct_id    INTEGER UNSIGNED,
   money DOUBLE      NOT NULL,
-  time DATETIME     NOT NULL,
   remark            VARCHAR(4000),
+  create_time timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  update_time timestamp NOT NULL default '2017-11-14 16:00:00',
   PRIMARY KEY (id)
 );
+
+drop table IF EXISTS id_gen;
+create table id_gen(
+    sequence_name VARCHAR(128) NOT NULL,
+    next_val INTEGER NOT NULL
+)

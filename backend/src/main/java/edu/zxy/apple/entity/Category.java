@@ -9,29 +9,29 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
-import edu.zxy.apple.enums.RoleType;
+import edu.zxy.apple.enums.CategoryType;
 
 @Entity
-@Table(name="role")
-public class Role {
+public class Category {
 	@Id
 	@TableGenerator(
-            name="roleGen", 
+            name="categoryGen", 
             table="ID_GEN", 
             pkColumnName="SEQUENCE_NAME", 
             valueColumnName="NEXT_VAL", 
-            pkColumnValue="ROLE_ID", 
+            pkColumnValue="CATEGORY_ID", 
             allocationSize=1)
-	@GeneratedValue(strategy =GenerationType.TABLE,generator="roleGen")
+	@GeneratedValue(strategy =GenerationType.TABLE,generator="categoryGen")
 	private Integer id;
+	
+	private Integer pid;
 	
 	private String name;
 	
 	@Enumerated(EnumType.STRING)
-	private RoleType type;
+	private CategoryType type;
 	
 	@Column( name = "create_time" )
 	@FunctionCreationDatetime
@@ -47,17 +47,22 @@ public class Role {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	public Integer getPid() {
+		return pid;
+	}
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public RoleType getType() {
+	public CategoryType getType() {
 		return type;
 	}
-	public void setType(RoleType type) {
+	public void setType(CategoryType type) {
 		this.type = type;
 	}
 	public Date getCreatedDatetime() {

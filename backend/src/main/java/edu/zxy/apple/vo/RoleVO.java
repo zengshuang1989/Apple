@@ -1,10 +1,20 @@
 package edu.zxy.apple.vo;
 
+import java.sql.Date;
+
+import edu.zxy.apple.enums.RoleType;
+
 public class RoleVO {
 
-	private int id;
+private Integer id;
+	
 	private String name;
-	private String type;
+	
+	private RoleType type;
+	
+	private Date createdDatetime;
+	
+	private Date lastUpdatedDatetime;
 	
 	public int getId() {
 		return id;
@@ -18,13 +28,26 @@ public class RoleVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getType() {
+	public RoleType getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(RoleType type) {
 		this.type = type;
 	}
-	
-	
+	public Date getCreatedDatetime() {
+		return createdDatetime;
+	}
+	public void setCreatedDatetime(Date createdDatetime) {
+		this.createdDatetime = createdDatetime;
+	}
+	public Date getLastUpdatedDatetime() {
+		return lastUpdatedDatetime;
+	}
+	public void setLastUpdatedDatetime(Date lastUpdatedDatetime) {
+		this.lastUpdatedDatetime = lastUpdatedDatetime;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 }

@@ -18,7 +18,8 @@
 
         <property name="show_sql">true</property>
 
-        <mapping class="zxy.apple.pojo.Role" />
+        <mapping class="edu.zxy.apple.entity.Role" />
+        <mapping class="edu.zxy.apple.entity.Account" />
 
     </session-factory>
 
