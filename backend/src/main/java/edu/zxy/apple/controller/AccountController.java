@@ -16,27 +16,32 @@ import edu.zxy.apple.enums.AccountType;
 import edu.zxy.apple.vo.AccountVO;
 
 @Controller
-public class AccoutController {
+public class AccountController
+{
 
-	@Autowired
-	AccountDao accountDao;
-	
-	@RequestMapping(value = "/account", method = RequestMethod.POST)
-	public @ResponseBody AccountVO addAccount(@RequestBody AccountVO account) {
-		Account addAccount = new Account();
-		addAccount.setName("test account");
-		addAccount.setType(AccountType.CASH);
-		addAccount.setRemark("test account remark.");
-		accountDao.add(addAccount);
-		return account;
-	}
+    @Autowired
+    AccountDao accountDao;
 
-	@RequestMapping(value = "/account", method = RequestMethod.GET)
-	public @ResponseBody List<AccountVO> getAllAccount() {
-		List<Account> list = accountDao.getAll();
-		List<AccountVO> list2= new ArrayList<AccountVO>();
-		if(list!=null){
-            for(Account account:list){
+    @RequestMapping(value = "/account", method = RequestMethod.POST)
+    public @ResponseBody AccountVO addAccount(@RequestBody AccountVO account)
+    {
+        Account addAccount = new Account();
+        addAccount.setName("test account");
+        addAccount.setType(AccountType.CASH);
+        addAccount.setRemark("test account remark.");
+        accountDao.add(addAccount);
+        return account;
+    }
+
+    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    public @ResponseBody List<AccountVO> getAllAccount()
+    {
+        List<Account> list = accountDao.getAll();
+        List<AccountVO> list2 = new ArrayList<AccountVO>();
+        if (list != null)
+        {
+            for (Account account : list)
+            {
                 AccountVO accountVO = new AccountVO();
                 accountVO.setId(account.getId());
                 accountVO.setName(account.getName());
@@ -51,6 +56,6 @@ public class AccoutController {
             }
         }
 
-		return list2;
-	}
+        return list2;
+    }
 }

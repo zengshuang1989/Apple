@@ -3,18 +3,19 @@ package edu.zxy.apple.entity;
 import javax.persistence.Entity;
 
 @Entity
-public class CreditAccount extends Account {
+public class CreditAccount extends Account
+{
 
-	private double creditLimit;
+    private double creditLimit;
 
-	public double getCreditLimit() {
-		return creditLimit;
-	}
+    public double getCreditLimit()
+    {
+        return creditLimit;
+    }
 
-	public void setCreditLimit(double creditLimit) {
-		this.creditLimit = creditLimit;
-	}
-	
-	
-	
+    public void setCreditLimit(double creditLimit)
+    {
+        this.creditLimit = creditLimit;
+    }
+
 }

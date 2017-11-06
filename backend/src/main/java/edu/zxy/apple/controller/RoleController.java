@@ -16,26 +16,31 @@ import edu.zxy.apple.enums.RoleType;
 import edu.zxy.apple.vo.RoleVO;
 
 @Controller
-public class HelloController {
+public class RoleController
+{
 
-	@Autowired
-	RoleDao roleDao;
-	
-	@RequestMapping(value = "/role", method = RequestMethod.POST)
-	public @ResponseBody RoleVO addRole(@RequestBody RoleVO role) {
-		Role addRole = new Role();
-		addRole.setName("Bank of China");
-		addRole.setType(RoleType.INSTITUTION);
-		roleDao.add(addRole);
-		return role;
-	}
+    @Autowired
+    RoleDao roleDao;
 
-	@RequestMapping(value = "/role", method = RequestMethod.GET)
-	public @ResponseBody List<RoleVO> getAllRole() {
-		List<Role> list = roleDao.getAll();
-		List<RoleVO> list2= new ArrayList<RoleVO>();
-		if(list!=null){
-            for(Role role:list){
+    @RequestMapping(value = "/role", method = RequestMethod.POST)
+    public @ResponseBody RoleVO addRole(@RequestBody RoleVO role)
+    {
+        Role addRole = new Role();
+        addRole.setName("Bank of China");
+        addRole.setType(RoleType.INSTITUTION);
+        roleDao.add(addRole);
+        return role;
+    }
+
+    @RequestMapping(value = "/role", method = RequestMethod.GET)
+    public @ResponseBody List<RoleVO> getAllRole()
+    {
+        List<Role> list = roleDao.getAll();
+        List<RoleVO> list2 = new ArrayList<RoleVO>();
+        if (list != null)
+        {
+            for (Role role : list)
+            {
                 RoleVO roleVO = new RoleVO();
                 roleVO.setId(role.getId());
                 roleVO.setName(role.getName());
@@ -44,6 +49,6 @@ public class HelloController {
             }
         }
 
-		return list2;
-	}
+        return list2;
+    }
 }

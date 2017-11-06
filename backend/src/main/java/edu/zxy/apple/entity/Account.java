@@ -17,110 +17,116 @@ import org.hibernate.annotations.Formula;
 
 import edu.zxy.apple.enums.AccountType;
 
-
 @Entity
-@Table(name="account")
-public class Account {
-	
-	@Id
-	@TableGenerator(
-            name="acctGen", 
-            table="ID_GEN", 
-            pkColumnName="SEQUENCE_NAME", 
-            valueColumnName="NEXT_VAL", 
-            pkColumnValue="ACCT_ID", 
-            allocationSize=1)
-	@GeneratedValue(strategy =GenerationType.TABLE,generator="acctGen")
-	private Integer id;
-	
-	private String name;
-	
-	@Enumerated(EnumType.STRING)
-	private AccountType type;   
-	
-	@Column( name = "role_id" )
-	private Integer roleId;
-	
-	private String remark;
-	
-	@Column( name = "create_time" )
-	@FunctionCreationDatetime
-	private Timestamp createdDatetime;
-	
-	@Column( name = "update_time" )
-	@FunctionLastUpdatedDatetime
-	private Timestamp lastUpdatedDatetime;
-	
-	@Formula(value = "(select sum(t.money) from record t where t.flowin_acct_id = id)")
-	private BigDecimal totalFlowIn;
-	
-	@Formula(value = "(select sum(t.money) from record t where t.flowout_acct_id = id)")
-	private BigDecimal totalFlowOut;
-	
-	@Formula(value = "((select sum(t.money) from record t where t.flowin_acct_id = id)-(select sum(t.money) from record t where t.flowout_acct_id = id))")
-	private BigDecimal balance;
-	
-	public Integer getId() {
-		return id;
-	}
+@Table(name = "account")
+public class Account
+{
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @Id
+    @TableGenerator(name = "acctGen", table = "ID_GEN", pkColumnName = "SEQUENCE_NAME", valueColumnName = "NEXT_VAL", pkColumnValue = "ACCT_ID", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "acctGen")
+    private Integer id;
 
-	public String getName() {
-		return name;
-	}
+    private String name;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Enumerated(EnumType.STRING)
+    private AccountType type;
 
-	public AccountType getType() {
-		return type;
-	}
+    @Column(name = "role_id")
+    private Integer roleId;
 
-	public void setType(AccountType cash) {
-		this.type = cash;
-	}
-	
-	public Integer getRoleId() {
-		return roleId;
-	}
+    private String remark;
 
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
+    @Column(name = "create_time")
+    @FunctionCreationDatetime
+    private Timestamp createdDatetime;
 
-	public String getRemark() {
-		return remark;
-	}
+    @Column(name = "update_time")
+    @FunctionLastUpdatedDatetime
+    private Timestamp lastUpdatedDatetime;
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    @Formula(value = "(select sum(t.money) from record t where t.flowin_acct_id = id)")
+    private BigDecimal totalFlowIn;
 
+    @Formula(value = "(select sum(t.money) from record t where t.flowout_acct_id = id)")
+    private BigDecimal totalFlowOut;
 
-	public Timestamp getCreatedDatetime() {
-		return createdDatetime;
-	}
+    @Formula(value = "((select sum(t.money) from record t where t.flowin_acct_id = id)-(select sum(t.money) from record t where t.flowout_acct_id = id))")
+    private BigDecimal balance;
 
-	public Timestamp getLastUpdatedDatetime() {
-		return lastUpdatedDatetime;
-	}
+    public Integer getId()
+    {
+        return id;
+    }
 
-	public BigDecimal getTotalFlowIn() {
-		return totalFlowIn;
-	}
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
 
-	public BigDecimal getTotalFlowOut() {
-		return totalFlowOut;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public BigDecimal getBalance() {
-		return balance;
-	}
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
+    public AccountType getType()
+    {
+        return type;
+    }
+
+    public void setType(AccountType cash)
+    {
+        this.type = cash;
+    }
+
+    public Integer getRoleId()
+    {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId)
+    {
+        this.roleId = roleId;
+    }
+
+    public String getRemark()
+    {
+        return remark;
+    }
+
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
+
+    public Timestamp getCreatedDatetime()
+    {
+        return createdDatetime;
+    }
+
+    public Timestamp getLastUpdatedDatetime()
+    {
+        return lastUpdatedDatetime;
+    }
+
+    public BigDecimal getTotalFlowIn()
+    {
+        return totalFlowIn;
+    }
+
+    public BigDecimal getTotalFlowOut()
+    {
+        return totalFlowOut;
+    }
+
+    public BigDecimal getBalance()
+    {
+        return balance;
+    }
 
 }
-

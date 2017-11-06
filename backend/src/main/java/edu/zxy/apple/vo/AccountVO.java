@@ -5,108 +5,127 @@ import java.sql.Timestamp;
 
 import edu.zxy.apple.enums.AccountType;
 
-public class AccountVO {
-	
-	private Integer id;
-	
-	private String name;
-	
-	private AccountType type;   
-	
-	private Integer roleId;
-	
-	private String remark;
-	
-	private Timestamp createdDatetime;
-	
-	private Timestamp lastUpdatedDatetime;
-	
-	private BigDecimal totalFlowIn;
-	
-	private BigDecimal totalFlowOut;
-	
-	private BigDecimal balance;
+public class AccountVO
+{
 
-	public Integer getId() {
-		return id;
-	}
+    private Integer id;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    private AccountType type;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private Integer roleId;
 
-	public AccountType getType() {
-		return type;
-	}
+    private String remark;
 
-	public void setType(AccountType accountType) {
-		this.type = accountType;
-	}
+    private Timestamp createdDatetime;
 
-	public Integer getRoleId() {
-		return roleId;
-	}
+    private Timestamp lastUpdatedDatetime;
 
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
+    private BigDecimal totalFlowIn;
 
-	public String getRemark() {
-		return remark;
-	}
+    private BigDecimal totalFlowOut;
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    private BigDecimal balance;
 
-	public Timestamp getCreatedDatetime() {
-		return createdDatetime;
-	}
+    public Integer getId()
+    {
+        return id;
+    }
 
-	public Timestamp getLastUpdatedDatetime() {
-		return lastUpdatedDatetime;
-	}
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
 
-	public BigDecimal getTotalFlowIn() {
-		return totalFlowIn;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public BigDecimal getTotalFlowOut() {
-		return totalFlowOut;
-	}
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
-	public BigDecimal getBalance() {
-		return balance;
-	}
+    public AccountType getType()
+    {
+        return type;
+    }
 
-	public void setCreatedDatetime(Timestamp createdDatetime) {
-		this.createdDatetime = createdDatetime;
-	}
+    public void setType(AccountType accountType)
+    {
+        this.type = accountType;
+    }
 
-	public void setLastUpdatedDatetime(Timestamp lastUpdatedDatetime) {
-		this.lastUpdatedDatetime = lastUpdatedDatetime;
-	}
+    public Integer getRoleId()
+    {
+        return roleId;
+    }
 
-	public void setTotalFlowIn(BigDecimal totalFlowIn) {
-		this.totalFlowIn = totalFlowIn;
-	}
+    public void setRoleId(Integer roleId)
+    {
+        this.roleId = roleId;
+    }
 
-	public void setTotalFlowOut(BigDecimal totalFlowOut) {
-		this.totalFlowOut = totalFlowOut;
-	}
+    public String getRemark()
+    {
+        return remark;
+    }
 
-	public void setBalance(BigDecimal balance) {
-		this.balance = balance;
-	}
-	
-	
-	
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
+
+    public Timestamp getCreatedDatetime()
+    {
+        return createdDatetime;
+    }
+
+    public Timestamp getLastUpdatedDatetime()
+    {
+        return lastUpdatedDatetime;
+    }
+
+    public BigDecimal getTotalFlowIn()
+    {
+        return totalFlowIn;
+    }
+
+    public BigDecimal getTotalFlowOut()
+    {
+        return totalFlowOut;
+    }
+
+    public BigDecimal getBalance()
+    {
+        return balance;
+    }
+
+    public void setCreatedDatetime(Timestamp createdDatetime)
+    {
+        this.createdDatetime = createdDatetime;
+    }
+
+    public void setLastUpdatedDatetime(Timestamp lastUpdatedDatetime)
+    {
+        this.lastUpdatedDatetime = lastUpdatedDatetime;
+    }
+
+    public void setTotalFlowIn(BigDecimal totalFlowIn)
+    {
+        this.totalFlowIn = totalFlowIn;
+    }
+
+    public void setTotalFlowOut(BigDecimal totalFlowOut)
+    {
+        this.totalFlowOut = totalFlowOut;
+    }
+
+    public void setBalance(BigDecimal balance)
+    {
+        this.balance = balance;
+    }
+
 }

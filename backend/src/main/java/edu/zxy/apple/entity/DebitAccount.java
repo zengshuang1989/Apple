@@ -3,17 +3,19 @@ package edu.zxy.apple.entity;
 import javax.persistence.Entity;
 
 @Entity
-public class DebitAccount extends Account {
+public class DebitAccount extends Account
+{
 
-	private double overdraftFee;
+    private double overdraftFee;
 
-	public double getOverdraftFee() {
-		return overdraftFee;
-	}
+    public double getOverdraftFee()
+    {
+        return overdraftFee;
+    }
 
-	public void setOverdraftFee(double overdraftFee) {
-		this.overdraftFee = overdraftFee;
-	}
-	
-	
+    public void setOverdraftFee(double overdraftFee)
+    {
+        this.overdraftFee = overdraftFee;
+    }
+
 }

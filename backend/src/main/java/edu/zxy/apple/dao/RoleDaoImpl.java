@@ -9,38 +9,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.zxy.apple.entity.Role;
 
-public class RoleDaoImpl implements RoleDao {
+public class RoleDaoImpl implements RoleDao
+{
 
-	@Autowired
+    @Autowired
     private SessionFactory sessionFactory;
-	
-	@Override
-	public List<Role> getAll() {
-		Session session = sessionFactory.getCurrentSession();
+
+    @Override
+    public List<Role> getAll()
+    {
+        Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         List<Role> all = null;
-        try{
+        try
+        {
             all = session.createQuery("from Role").getResultList();
-        }catch(HibernateException e){
+        } catch (HibernateException e)
+        {
             session.getTransaction().rollback();
         }
         session.getTransaction().commit();
         return all;
 
-	}
+    }
 
-	@Override
-	public void add(Role role) {
-		 Session session = sessionFactory.getCurrentSession();
-	        try{
-	            session.beginTransaction();
-	            session.save(role);
-	        }catch(HibernateException e){
-	            session.getTransaction().rollback();
-	        }
-	        session.getTransaction().commit();
+    @Override
+    public void add(Role role)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        try
+        {
+            session.beginTransaction();
+            session.save(role);
+        } catch (HibernateException e)
+        {
+            session.getTransaction().rollback();
+        }
+        session.getTransaction().commit();
 
-
-	}
+    }
 
 }
