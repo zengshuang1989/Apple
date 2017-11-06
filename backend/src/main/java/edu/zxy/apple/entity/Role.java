@@ -1,8 +1,5 @@
 package edu.zxy.apple.entity;
 
-import java.sql.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -28,13 +25,6 @@ public class Role
     @Enumerated(EnumType.STRING)
     private RoleType type;
 
-    @Column(name = "create_time")
-    @FunctionCreationDatetime
-    private Date createdDatetime;
-
-    @Column(name = "update_time")
-    @FunctionLastUpdatedDatetime
-    private Date lastUpdatedDatetime;
 
     public Integer getId()
     {
@@ -66,14 +56,5 @@ public class Role
         this.type = type;
     }
 
-    public Date getCreatedDatetime()
-    {
-        return createdDatetime;
-    }
-
-    public Date getLastUpdatedDatetime()
-    {
-        return lastUpdatedDatetime;
-    }
 
 }

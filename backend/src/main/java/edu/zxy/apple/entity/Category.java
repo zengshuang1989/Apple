@@ -1,8 +1,5 @@
 package edu.zxy.apple.entity;
 
-import java.sql.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,7 +11,7 @@ import javax.persistence.TableGenerator;
 import edu.zxy.apple.enums.CategoryType;
 
 @Entity
-public class Category
+public class Category extends Base
 {
     @Id
     @TableGenerator(name = "categoryGen", table = "ID_GEN", pkColumnName = "SEQUENCE_NAME", valueColumnName = "NEXT_VAL", pkColumnValue = "CATEGORY_ID", allocationSize = 1)
@@ -28,13 +25,6 @@ public class Category
     @Enumerated(EnumType.STRING)
     private CategoryType type;
 
-    @Column(name = "create_time")
-    @FunctionCreationDatetime
-    private Date createdDatetime;
-
-    @Column(name = "update_time")
-    @FunctionLastUpdatedDatetime
-    private Date lastUpdatedDatetime;
 
     public Integer getId()
     {
@@ -76,14 +66,5 @@ public class Category
         this.type = type;
     }
 
-    public Date getCreatedDatetime()
-    {
-        return createdDatetime;
-    }
-
-    public Date getLastUpdatedDatetime()
-    {
-        return lastUpdatedDatetime;
-    }
 
 }

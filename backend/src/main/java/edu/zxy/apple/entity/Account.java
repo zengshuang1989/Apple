@@ -1,7 +1,6 @@
 package edu.zxy.apple.entity;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +18,7 @@ import edu.zxy.apple.enums.AccountType;
 
 @Entity
 @Table(name = "account")
-public class Account
+public class Account extends Base
 {
 
     @Id
@@ -36,14 +35,6 @@ public class Account
     private Integer roleId;
 
     private String remark;
-
-    @Column(name = "create_time")
-    @FunctionCreationDatetime
-    private Timestamp createdDatetime;
-
-    @Column(name = "update_time")
-    @FunctionLastUpdatedDatetime
-    private Timestamp lastUpdatedDatetime;
 
     @Formula(value = "(select sum(t.money) from record t where t.flowin_acct_id = id)")
     private BigDecimal totalFlowIn;
@@ -102,16 +93,6 @@ public class Account
     public void setRemark(String remark)
     {
         this.remark = remark;
-    }
-
-    public Timestamp getCreatedDatetime()
-    {
-        return createdDatetime;
-    }
-
-    public Timestamp getLastUpdatedDatetime()
-    {
-        return lastUpdatedDatetime;
     }
 
     public BigDecimal getTotalFlowIn()

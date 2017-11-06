@@ -1,7 +1,6 @@
 package edu.zxy.apple.entity;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.TableGenerator;
 
 @Entity
-public class Record
+public class Record extends Base
 {
     @Id
     @TableGenerator(name = "recordGen", table = "ID_GEN", pkColumnName = "SEQUENCE_NAME", valueColumnName = "NEXT_VAL", pkColumnValue = "RECORD_ID", allocationSize = 1)
@@ -31,13 +30,6 @@ public class Record
 
     private String remark;
 
-    @Column(name = "create_time")
-    @FunctionCreationDatetime
-    private Date createdDatetime;
-
-    @Column(name = "update_time")
-    @FunctionLastUpdatedDatetime
-    private Date lastUpdatedDatetime;
 
     public Integer getId()
     {
@@ -99,14 +91,5 @@ public class Record
         this.remark = remark;
     }
 
-    public Date getCreatedDatetime()
-    {
-        return createdDatetime;
-    }
-
-    public Date getLastUpdatedDatetime()
-    {
-        return lastUpdatedDatetime;
-    }
 
 }
