@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import edu.zxy.apple.enums.RoleType;
 
-public class RoleVO
+public class RoleVO extends BaseVO
 {
 
     private Integer id;
@@ -13,9 +13,6 @@ public class RoleVO
 
     private RoleType type;
 
-    private Date createdDatetime;
-
-    private Date lastUpdatedDatetime;
 
     public int getId()
     {
@@ -45,26 +42,6 @@ public class RoleVO
     public void setType(RoleType type)
     {
         this.type = type;
-    }
-
-    public Date getCreatedDatetime()
-    {
-        return createdDatetime;
-    }
-
-    public void setCreatedDatetime(Date createdDatetime)
-    {
-        this.createdDatetime = createdDatetime;
-    }
-
-    public Date getLastUpdatedDatetime()
-    {
-        return lastUpdatedDatetime;
-    }
-
-    public void setLastUpdatedDatetime(Date lastUpdatedDatetime)
-    {
-        this.lastUpdatedDatetime = lastUpdatedDatetime;
     }
 
     public void setId(Integer id)

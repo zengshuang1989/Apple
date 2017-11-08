@@ -93,3 +93,11 @@ CREATE TABLE debit_account (
   update_time timestamp NOT NULL default '2017-11-14 16:00:00',
   PRIMARY KEY (ID)
 );
+
+ALTER TABLE record
+ADD CONSTRAINT FK_FLOWOUT_ACCT_ID
+FOREIGN KEY (flowout_acct_id) REFERENCES account;
+
+ALTER TABLE record
+ADD CONSTRAINT FK_FLOWOUT_ACCT_ID
+FOREIGN KEY (flowin_acct_id) REFERENCES account;

@@ -1,39 +1,22 @@
-package edu.zxy.apple.entity;
+package edu.zxy.apple.vo;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.TableGenerator;
+import edu.zxy.apple.entity.Account;
 
-@Entity
-public class Record extends Base
+public class RecordVO extends BaseVO
 {
-    @Id
-    @TableGenerator(name = "recordGen", table = "ID_GEN", pkColumnName = "SEQUENCE_NAME", valueColumnName = "NEXT_VAL", pkColumnValue = "RECORD_ID", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "recordGen")
     private Integer id;
 
-    @Column(name = "category_id")
     private Integer categoryId;
 
-    @OneToOne
-    @JoinColumn(name = "flowout_acct_id")
     private Account flowoutAcct;
 
-    @OneToOne
-    @JoinColumn(name = "flowin_acct_id")
     private Account flowinAcct;
 
     private BigDecimal money;
-
+    
     private String remark;
-
 
     public Integer getId()
     {
@@ -54,7 +37,6 @@ public class Record extends Base
     {
         this.categoryId = categoryId;
     }
-
 
     public Account getFlowoutAcct()
     {
@@ -95,6 +77,7 @@ public class Record extends Base
     {
         this.remark = remark;
     }
-
-
+    
+    
+    
 }
