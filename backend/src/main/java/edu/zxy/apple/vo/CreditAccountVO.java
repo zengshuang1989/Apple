@@ -1,8 +1,6 @@
 package edu.zxy.apple.vo;
 
-import edu.zxy.apple.entity.Account;
-
-public class CreditAccountVO extends Account
+public class CreditAccountVO extends AccountVO
 {
     private double creditLimit;
 

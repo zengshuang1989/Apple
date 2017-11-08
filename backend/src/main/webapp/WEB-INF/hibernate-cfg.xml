@@ -20,6 +20,8 @@
 
         <mapping class="edu.zxy.apple.entity.Role" />
         <mapping class="edu.zxy.apple.entity.Account" />
+        <mapping class="edu.zxy.apple.entity.CreditAccount" />
+        <mapping class="edu.zxy.apple.entity.DebitAccount" />
 
     </session-factory>
 

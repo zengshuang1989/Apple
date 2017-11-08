@@ -54,9 +54,9 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     
-    <bean id="RoleDao" class="edu.zxy.apple.dao.RoleDaoImpl">
-    </bean>
-    <bean id="AccountDao" class="edu.zxy.apple.dao.AccountDaoImpl">
-    </bean>
+    <bean id="RoleDao" class="edu.zxy.apple.dao.RoleDaoImpl"></bean>
+    <bean id="AccountDao" class="edu.zxy.apple.dao.AccountDaoImpl"></bean>
+    <bean id="CreditAccountDao" class="edu.zxy.apple.dao.CreditAccountDaoImpl"></bean>
+    <bean id="DebitAccountDao" class="edu.zxy.apple.dao.DebitAccountDaoImpl"></bean>
 
 </beans>

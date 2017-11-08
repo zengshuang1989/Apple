@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -18,6 +20,7 @@ import edu.zxy.apple.enums.AccountType;
 
 @Entity
 @Table(name = "account")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Account extends Base
 {
 

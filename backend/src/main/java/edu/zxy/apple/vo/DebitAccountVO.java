@@ -1,8 +1,6 @@
 package edu.zxy.apple.vo;
 
-import edu.zxy.apple.entity.Account;
-
-public class DebitAccountVO extends Account
+public class DebitAccountVO extends AccountVO
 {
     private double overdraftFee;
 

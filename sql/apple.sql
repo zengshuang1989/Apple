@@ -61,8 +61,35 @@ CREATE TABLE record (
   PRIMARY KEY (id)
 );
 
+/*序列表*/
 drop table IF EXISTS id_gen;
 create table id_gen(
     sequence_name VARCHAR(128) NOT NULL,
     next_val INTEGER NOT NULL
 )
+
+DROP TABLE IF EXISTS credit_account;
+CREATE TABLE credit_account (
+  id        INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  name      VARCHAR(128)     NOT NULL,
+  type      VARCHAR(32)      NOT NULL,
+  role_id   INTEGER UNSIGNED,
+  remark    VARCHAR(4000),
+  credit_limit     DOUBLE,
+  create_time timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  update_time timestamp NOT NULL default '2017-11-14 16:00:00',
+  PRIMARY KEY (ID)
+);
+
+DROP TABLE IF EXISTS debit_account;
+CREATE TABLE debit_account (
+  id        INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  name      VARCHAR(128)     NOT NULL,
+  type      VARCHAR(32)      NOT NULL,
+  role_id   INTEGER UNSIGNED,
+  remark    VARCHAR(4000),
+  over_draftFee     DOUBLE,
+  create_time timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  update_time timestamp NOT NULL default '2017-11-14 16:00:00',
+  PRIMARY KEY (ID)
+);
