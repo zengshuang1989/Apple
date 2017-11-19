@@ -1,8 +1,5 @@
 package edu.zxy.apple.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zxy.apple.dao.RoleDao;
+import edu.zxy.apple.dao.BaseDao;
 import edu.zxy.apple.entity.Role;
-import edu.zxy.apple.enums.RoleType;
 import edu.zxy.apple.vo.RoleVO;
 
 @Controller
@@ -20,35 +16,45 @@ public class RoleController
 {
 
     @Autowired
-    RoleDao roleDao;
+    BaseDao<Role> roleDao;
 
-    @RequestMapping(value = "/role", method = RequestMethod.POST)
-    public @ResponseBody RoleVO addRole(@RequestBody RoleVO role)
+    @RequestMapping(value = "/addRole", method = RequestMethod.POST)
+    public @ResponseBody void addRole(@RequestBody RoleVO roleVO)
     {
-        Role addRole = new Role();
-        addRole.setName("Bank of China");
-        addRole.setType(RoleType.INSTITUTION);
-        roleDao.add(addRole);
-        return role;
+        Role role = new Role();
+        role.setName(roleVO.getName());
+        role.setType(roleVO.getType());
+        roleDao.add(role);
     }
 
-    @RequestMapping(value = "/role", method = RequestMethod.GET)
-    public @ResponseBody List<RoleVO> getAllRole()
+    @RequestMapping(value = "/delRole", method = RequestMethod.POST)
+    public @ResponseBody void delRole(@RequestBody RoleVO roleVO)
     {
-        List<Role> list = roleDao.getAll();
-        List<RoleVO> list2 = new ArrayList<RoleVO>();
-        if (list != null)
-        {
-            for (Role role : list)
-            {
-                RoleVO roleVO = new RoleVO();
-                roleVO.setId(role.getId());
-                roleVO.setName(role.getName());
-                roleVO.setType(role.getType());
-                list2.add(roleVO);
-            }
-        }
+        Role role = new Role();
+        role.setId(roleVO.getId());
+        roleDao.delete(role);
+    }
 
-        return list2;
+    @RequestMapping(value = "/updateRole", method = RequestMethod.POST)
+    public @ResponseBody void updateRole(@RequestBody RoleVO roleVO)
+    {
+        Role role = new Role();
+        role.setId(roleVO.getId());
+        role.setName(roleVO.getName());
+        role.setType(roleVO.getType());
+        roleDao.update(role);
+    }
+
+    @RequestMapping(value = "/getRole", method = RequestMethod.POST)
+    public @ResponseBody RoleVO getRole(@RequestBody Integer roleId)
+    {
+        Role role = roleDao.get(roleId);
+        RoleVO roleVO = new RoleVO();
+        roleVO.setId(role.getId());
+        roleVO.setName(role.getName());
+        roleVO.setType(role.getType());
+        roleVO.setCreatedDatetime(role.getCreatedDatetime());
+        roleVO.setLastUpdatedDatetime(role.getLastUpdatedDatetime());
+        return roleVO;
     }
 }

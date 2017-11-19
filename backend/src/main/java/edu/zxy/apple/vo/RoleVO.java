@@ -1,7 +1,5 @@
 package edu.zxy.apple.vo;
 
-import java.sql.Date;
-
 import edu.zxy.apple.enums.RoleType;
 
 public class RoleVO extends BaseVO

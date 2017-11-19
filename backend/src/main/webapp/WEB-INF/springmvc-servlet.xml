@@ -54,10 +54,10 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     
-    <bean id="RoleDao" class="edu.zxy.apple.dao.RoleDaoImpl"></bean>
-    <bean id="AccountDao" class="edu.zxy.apple.dao.AccountDaoImpl"></bean>
-    <bean id="CreditAccountDao" class="edu.zxy.apple.dao.CreditAccountDaoImpl"></bean>
-    <bean id="DebitAccountDao" class="edu.zxy.apple.dao.DebitAccountDaoImpl"></bean>
-    <bean id="RecordDao" class="edu.zxy.apple.dao.RecordDaoImpl"></bean>
+    <bean id="roleDao" class="edu.zxy.apple.dao.RoleDaoImpl"></bean>
+    <bean id="accountDao" class="edu.zxy.apple.dao.AccountDaoImpl"></bean>
+    <bean id="creditAccountDao" class="edu.zxy.apple.dao.CreditAccountDaoImpl"></bean>
+    <bean id="debitAccountDao" class="edu.zxy.apple.dao.DebitAccountDaoImpl"></bean>
+    <bean id="recordDao" class="edu.zxy.apple.dao.RecordDaoImpl"></bean>
 
 </beans>

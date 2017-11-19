@@ -1,8 +1,5 @@
 package edu.zxy.apple.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,47 +7,74 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.zxy.apple.entity.CreditAccount;
 
-public class CreditAccountDaoImpl implements CreditAccountDao
+public class CreditAccountDaoImpl implements BaseDao<CreditAccount>
 {
-
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public List<CreditAccount> getAll()
-    {
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        List<CreditAccount> all = null;
-        try
-        {
-            // all = session.createQuery("from account").getResultList();
-            CreditAccount acct = session.get(CreditAccount.class, 26);
-            all = new ArrayList<CreditAccount>(1);
-            all.add(acct);
-        } catch (HibernateException e)
-        {
-            session.getTransaction().rollback();
-        }
-        session.getTransaction().commit();
-        return all;
-
-    }
-
-    @Override
-    public void add(CreditAccount account)
+    public void add(CreditAccount t)
     {
         Session session = sessionFactory.getCurrentSession();
         try
         {
             session.beginTransaction();
-            session.save(account);
+            session.save(t);
         } catch (HibernateException e)
         {
             session.getTransaction().rollback();
         }
         session.getTransaction().commit();
 
+    }
+
+    @Override
+    public void delete(CreditAccount t)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        try
+        {
+            session.beginTransaction();
+            session.delete(t);
+        } catch (HibernateException e)
+        {
+            session.getTransaction().rollback();
+        }
+        session.getTransaction().commit();
+
+    }
+
+    @Override
+    public void update(CreditAccount t)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        try
+        {
+            session.beginTransaction();
+            session.update(t);
+        } catch (HibernateException e)
+        {
+            session.getTransaction().rollback();
+        }
+        session.getTransaction().commit();
+
+    }
+
+    @Override
+    public CreditAccount get(Integer id)
+    {
+        CreditAccount account = null;
+        Session session = sessionFactory.getCurrentSession();
+        try
+        {
+            session.beginTransaction();
+            account = session.get(CreditAccount.class, id);
+        } catch (HibernateException e)
+        {
+            session.getTransaction().rollback();
+        }
+        session.getTransaction().commit();
+        return account;
     }
 
 }

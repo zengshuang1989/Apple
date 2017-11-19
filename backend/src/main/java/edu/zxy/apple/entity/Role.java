@@ -13,7 +13,7 @@ import edu.zxy.apple.enums.RoleType;
 
 @Entity
 @Table(name = "role")
-public class Role
+public class Role extends Base
 {
     @Id
     @TableGenerator(name = "roleGen", table = "ID_GEN", pkColumnName = "SEQUENCE_NAME", valueColumnName = "NEXT_VAL", pkColumnValue = "ROLE_ID", allocationSize = 1)
