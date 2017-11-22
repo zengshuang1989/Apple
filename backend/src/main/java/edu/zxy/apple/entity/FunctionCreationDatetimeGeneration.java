@@ -15,7 +15,7 @@ public class FunctionCreationDatetimeGeneration implements AnnotationValueGenera
     @Override
     public String getDatabaseGeneratedReferencedColumnValue()
     {
-        return "current_date";
+        return "now()";
     }
 
     @Override

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zxy.apple.dao.BaseDao;
+import edu.zxy.apple.dao.RoleDao;
 import edu.zxy.apple.entity.Role;
 import edu.zxy.apple.vo.RoleVO;
 
@@ -16,7 +16,7 @@ public class RoleController
 {
 
     @Autowired
-    BaseDao<Role> roleDao;
+    RoleDao roleDao;
 
     @RequestMapping(value = "/addRole", method = RequestMethod.POST)
     public @ResponseBody void addRole(@RequestBody RoleVO roleVO)

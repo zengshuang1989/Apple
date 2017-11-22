@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zxy.apple.dao.BaseDao;
+import edu.zxy.apple.dao.CreditAccountDao;
 import edu.zxy.apple.entity.CreditAccount;
 import edu.zxy.apple.vo.CreditAccountVO;
 
@@ -16,7 +16,7 @@ public class CreditAccountController
 {
 
     @Autowired
-    BaseDao<CreditAccount> creditAccountDao;
+    CreditAccountDao creditAccountDao;
 
     @RequestMapping(value = "/addCreditAccount", method = RequestMethod.POST)
     public @ResponseBody void addCreditAccount(@RequestBody CreditAccountVO accountVO)

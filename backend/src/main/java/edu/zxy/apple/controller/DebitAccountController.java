@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zxy.apple.dao.BaseDao;
+import edu.zxy.apple.dao.DebitAccountDao;
 import edu.zxy.apple.entity.DebitAccount;
 import edu.zxy.apple.vo.DebitAccountVO;
 
@@ -16,7 +16,7 @@ public class DebitAccountController
 {
 
     @Autowired
-    BaseDao<DebitAccount> debitAccountDao;
+    DebitAccountDao debitAccountDao;
 
     @RequestMapping(value = "/addDebitAccount", method = RequestMethod.POST)
     public @ResponseBody void addDebitAccount(@RequestBody DebitAccountVO accountVO)

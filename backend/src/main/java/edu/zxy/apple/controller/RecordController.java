@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zxy.apple.dao.BaseDao;
+import edu.zxy.apple.dao.RecordDao;
 import edu.zxy.apple.entity.Record;
 import edu.zxy.apple.vo.RecordVO;
 
@@ -16,7 +16,7 @@ public class RecordController
 {
 
     @Autowired
-    BaseDao<Record> recordDao;
+    RecordDao recordDao;
 
     @RequestMapping(value = "/addRecord", method = RequestMethod.POST)
     public @ResponseBody void addRecord(@RequestBody RecordVO recordVO)

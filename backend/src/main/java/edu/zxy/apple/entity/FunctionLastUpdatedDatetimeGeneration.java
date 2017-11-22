@@ -15,7 +15,7 @@ public class FunctionLastUpdatedDatetimeGeneration implements AnnotationValueGen
     @Override
     public String getDatabaseGeneratedReferencedColumnValue()
     {
-        return "current_date";
+        return "now()";
     }
 
     @Override
