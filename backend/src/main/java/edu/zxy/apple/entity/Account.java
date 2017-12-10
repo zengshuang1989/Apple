@@ -20,7 +20,7 @@ import edu.zxy.apple.enums.AccountType;
 
 @Entity
 @Table(name = "account")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Account extends Base
 {
 

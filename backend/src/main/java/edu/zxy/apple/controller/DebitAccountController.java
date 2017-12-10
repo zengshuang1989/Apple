@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zxy.apple.dao.DebitAccountDao;
+import edu.zxy.apple.dao.AccountDao;
 import edu.zxy.apple.entity.DebitAccount;
 import edu.zxy.apple.vo.DebitAccountVO;
 
@@ -16,7 +16,7 @@ public class DebitAccountController
 {
 
     @Autowired
-    DebitAccountDao debitAccountDao;
+    AccountDao accountDao;
 
     @RequestMapping(value = "/addDebitAccount", method = RequestMethod.POST)
     public @ResponseBody void addDebitAccount(@RequestBody DebitAccountVO accountVO)
@@ -28,7 +28,7 @@ public class DebitAccountController
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         account.setOverdraftFee(accountVO.getOverdraftFee());
-        debitAccountDao.add(account);
+        accountDao.add(account);
     }
 
     @RequestMapping(value = "/delDebitAccount", method = RequestMethod.POST)
@@ -36,7 +36,7 @@ public class DebitAccountController
     {
         DebitAccount account = new DebitAccount();
         account.setId(accountVO.getId());
-        debitAccountDao.delete(account);
+        accountDao.delete(account);
     }
 
     @RequestMapping(value = "/updateDebitAccount", method = RequestMethod.POST)
@@ -49,13 +49,13 @@ public class DebitAccountController
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         account.setOverdraftFee(accountVO.getOverdraftFee());
-        debitAccountDao.update(account);
+        accountDao.update(account);
     }
 
     @RequestMapping(value = "/getDebitAccount", method = RequestMethod.POST)
     public @ResponseBody DebitAccountVO getDebitAccount(@RequestBody Integer acctId)
     {
-        DebitAccount account = debitAccountDao.get(acctId);
+        DebitAccount account = (DebitAccount) accountDao.get(acctId);
         DebitAccountVO accountVO = new DebitAccountVO();
         accountVO.setId(account.getId());
         accountVO.setName(account.getName());

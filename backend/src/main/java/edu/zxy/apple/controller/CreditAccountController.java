@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zxy.apple.dao.CreditAccountDao;
+import edu.zxy.apple.dao.AccountDao;
 import edu.zxy.apple.entity.CreditAccount;
 import edu.zxy.apple.vo.CreditAccountVO;
 
@@ -16,7 +16,7 @@ public class CreditAccountController
 {
 
     @Autowired
-    CreditAccountDao creditAccountDao;
+    AccountDao accountDao;
 
     @RequestMapping(value = "/addCreditAccount", method = RequestMethod.POST)
     public @ResponseBody void addCreditAccount(@RequestBody CreditAccountVO accountVO)
@@ -27,7 +27,7 @@ public class CreditAccountController
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         account.setCreditLimit(accountVO.getCreditLimit());
-        creditAccountDao.add(account);
+        accountDao.add(account);
     }
 
     @RequestMapping(value = "/delCreditAccount", method = RequestMethod.POST)
@@ -35,7 +35,7 @@ public class CreditAccountController
     {
         CreditAccount account = new CreditAccount();
         account.setId(accountVO.getId());
-        creditAccountDao.delete(account);
+        accountDao.delete(account);
     }
 
     @RequestMapping(value = "/updateCreditAccount", method = RequestMethod.POST)
@@ -48,13 +48,13 @@ public class CreditAccountController
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         account.setCreditLimit(accountVO.getCreditLimit());
-        creditAccountDao.update(account);
+        accountDao.update(account);
     }
 
     @RequestMapping(value = "/getCreditAccount", method = RequestMethod.POST)
     public @ResponseBody CreditAccountVO getCreditAccount(@RequestBody Integer acctId)
     {
-        CreditAccount account = creditAccountDao.get(acctId);
+        CreditAccount account = (CreditAccount) accountDao.get(acctId);
         CreditAccountVO accountVO = new CreditAccountVO();
         accountVO.setId(account.getId());
         accountVO.setName(account.getName());
