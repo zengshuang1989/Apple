@@ -7,8 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.zxy.apple.entity.Account;
-
 public class BaseDaoImpl<T> implements BaseDao<T>
 {
 

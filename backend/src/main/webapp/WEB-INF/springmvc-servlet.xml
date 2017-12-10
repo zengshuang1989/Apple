@@ -56,8 +56,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
     
     <bean id="roleDao" class="edu.zxy.apple.dao.RoleDaoImpl"></bean>
     <bean id="accountDao" class="edu.zxy.apple.dao.AccountDaoImpl"></bean>
-    <bean id="creditAccountDao" class="edu.zxy.apple.dao.CreditAccountDaoImpl"></bean>
-    <bean id="debitAccountDao" class="edu.zxy.apple.dao.DebitAccountDaoImpl"></bean>
     <bean id="recordDao" class="edu.zxy.apple.dao.RecordDaoImpl"></bean>
 
 </beans>
