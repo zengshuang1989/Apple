@@ -2,7 +2,6 @@ package edu.zxy.apple.dao;
 
 import java.lang.reflect.ParameterizedType;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +16,15 @@ public class BaseDaoImpl<T> implements BaseDao<T>
     public void add(T t)
     {
         Session session = sessionFactory.getCurrentSession();
-        try
-        {
-            session.beginTransaction();
+//        try
+//        {
+//            session.beginTransaction();
             session.save(t);
-        } catch (HibernateException e)
-        {
-            session.getTransaction().rollback();
-        }
-        session.getTransaction().commit();
+//        } catch (HibernateException e)
+//        {
+//            session.getTransaction().rollback();
+//        }
+//        session.getTransaction().commit();
 
     }
 
@@ -33,15 +32,15 @@ public class BaseDaoImpl<T> implements BaseDao<T>
     public void delete(T t)
     {
         Session session = sessionFactory.getCurrentSession();
-        try
-        {
-            session.beginTransaction();
+//        try
+//        {
+//            session.beginTransaction();
             session.delete(t);
-        } catch (HibernateException e)
-        {
-            session.getTransaction().rollback();
-        }
-        session.getTransaction().commit();
+//        } catch (HibernateException e)
+//        {
+//            session.getTransaction().rollback();
+//        }
+//        session.getTransaction().commit();
 
     }
 
@@ -49,15 +48,15 @@ public class BaseDaoImpl<T> implements BaseDao<T>
     public void update(T t)
     {
         Session session = sessionFactory.getCurrentSession();
-        try
-        {
-            session.beginTransaction();
+//        try
+//        {
+//            session.beginTransaction();
             session.update(t);
-        } catch (HibernateException e)
-        {
-            session.getTransaction().rollback();
-        }
-        session.getTransaction().commit();
+//        } catch (HibernateException e)
+//        {
+//            session.getTransaction().rollback();
+//        }
+//        session.getTransaction().commit();
 
     }
 
@@ -66,15 +65,15 @@ public class BaseDaoImpl<T> implements BaseDao<T>
     {
         T t = null;
         Session session = sessionFactory.getCurrentSession();
-        try
-        {
-            session.beginTransaction();
+//        try
+//        {
+//            session.beginTransaction();
             t = session.get((Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0], id);
-        } catch (HibernateException e)
-        {
-            session.getTransaction().rollback();
-        }
-        session.getTransaction().commit();
+//        } catch (HibernateException e)
+//        {
+//            session.getTransaction().rollback();
+//        }
+//        session.getTransaction().commit();
         return t;
     }
 

@@ -11,8 +11,6 @@ public class AccountVO extends BaseVO
 
     private String name;
 
-    private AccountType type;
-
     private Integer roleId;
 
     private String remark;
@@ -46,13 +44,9 @@ public class AccountVO extends BaseVO
 
     public AccountType getType()
     {
-        return type;
+        return AccountType.SAVINGS;
     }
 
-    public void setType(AccountType accountType)
-    {
-        this.type = accountType;
-    }
 
     public Integer getRoleId()
     {

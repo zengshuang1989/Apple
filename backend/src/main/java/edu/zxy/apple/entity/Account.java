@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,9 +28,6 @@ public class Account extends Base
     private Integer id;
 
     private String name;
-
-    @Enumerated(EnumType.STRING)
-    private AccountType type;
 
     @Column(name = "role_id")
     private Integer roleId;
@@ -70,13 +65,9 @@ public class Account extends Base
 
     public AccountType getType()
     {
-        return type;
+        return AccountType.SAVINGS;
     }
 
-    public void setType(AccountType cash)
-    {
-        this.type = cash;
-    }
 
     public Integer getRoleId()
     {

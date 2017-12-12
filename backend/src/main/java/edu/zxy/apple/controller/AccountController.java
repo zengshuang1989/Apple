@@ -23,7 +23,7 @@ public class AccountController
     {
         Account account = new Account();
         account.setName(accountVO.getName());
-        account.setType(accountVO.getType());
+//        account.setType(accountVO.getType());
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         accountDao.add(account);
@@ -44,7 +44,7 @@ public class AccountController
         Account account = new Account();
         account.setId(accountVO.getId());
         account.setName(accountVO.getName());
-        account.setType(accountVO.getType());
+//        account.setType(accountVO.getType());
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         accountDao.update(account);
@@ -57,7 +57,7 @@ public class AccountController
         AccountVO accountVO = new AccountVO();
         accountVO.setId(account.getId());
         accountVO.setName(account.getName());
-        accountVO.setType(account.getType());
+//        accountVO.setType(account.getType());
         accountVO.setRoleId(account.getRoleId());
         accountVO.setRemark(account.getRemark());
         accountVO.setBalance(account.getBalance());

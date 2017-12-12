@@ -23,7 +23,7 @@ public class CreditAccountController
     {
         CreditAccount account = new CreditAccount();
         account.setName(accountVO.getName());
-        account.setType(accountVO.getType());
+//        account.setType(accountVO.getType());
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         account.setCreditLimit(accountVO.getCreditLimit());
@@ -44,7 +44,7 @@ public class CreditAccountController
         CreditAccount account = new CreditAccount();
         account.setId(accountVO.getId());
         account.setName(accountVO.getName());
-        account.setType(accountVO.getType());
+//        account.setType(accountVO.getType());
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         account.setCreditLimit(accountVO.getCreditLimit());
@@ -58,7 +58,7 @@ public class CreditAccountController
         CreditAccountVO accountVO = new CreditAccountVO();
         accountVO.setId(account.getId());
         accountVO.setName(account.getName());
-        accountVO.setType(account.getType());
+//        accountVO.setType(account.getType());
         accountVO.setRoleId(account.getRoleId());
         accountVO.setRemark(account.getRemark());
         accountVO.setBalance(account.getBalance());

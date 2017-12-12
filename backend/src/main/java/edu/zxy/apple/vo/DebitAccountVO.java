@@ -21,8 +21,4 @@ public class DebitAccountVO extends AccountVO
         return AccountType.DEBT;
     }
     
-    public void setType(AccountType accountType)
-    {
-        super.setType(AccountType.DEBT);
-    }
 }

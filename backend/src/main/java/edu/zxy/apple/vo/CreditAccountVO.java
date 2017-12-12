@@ -22,8 +22,4 @@ public class CreditAccountVO extends AccountVO
         return AccountType.CREDIT_CARD;
     }
     
-    public void setType(AccountType accountType)
-    {
-        super.setType(AccountType.CREDIT_CARD);
-    }
 }

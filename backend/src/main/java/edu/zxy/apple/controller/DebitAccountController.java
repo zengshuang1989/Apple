@@ -24,7 +24,7 @@ public class DebitAccountController
 
         DebitAccount account = new DebitAccount();
         account.setName(accountVO.getName());
-        account.setType(accountVO.getType());
+//        account.setType(accountVO.getType());
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         account.setOverdraftFee(accountVO.getOverdraftFee());
@@ -45,7 +45,7 @@ public class DebitAccountController
         DebitAccount account = new DebitAccount();
         account.setId(accountVO.getId());
         account.setName(accountVO.getName());
-        account.setType(accountVO.getType());
+//        account.setType(accountVO.getType());
         account.setRoleId(accountVO.getRoleId());
         account.setRemark(accountVO.getRemark());
         account.setOverdraftFee(accountVO.getOverdraftFee());
@@ -59,7 +59,7 @@ public class DebitAccountController
         DebitAccountVO accountVO = new DebitAccountVO();
         accountVO.setId(account.getId());
         accountVO.setName(account.getName());
-        accountVO.setType(account.getType());
+//        accountVO.setType(account.getType());
         accountVO.setRoleId(account.getRoleId());
         accountVO.setRemark(account.getRemark());
         accountVO.setBalance(account.getBalance());
