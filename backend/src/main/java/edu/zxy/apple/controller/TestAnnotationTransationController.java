@@ -10,7 +10,7 @@ import edu.zxy.apple.bean.TestAnnotationTransationBean;
 import edu.zxy.apple.bean.TestJDBCTransationBean;
 
 @Controller
-public class TestAnnotationTransationControl
+public class TestAnnotationTransationController
 {
     @Autowired
     TestAnnotationTransationBean testAnnotationTransationBean;

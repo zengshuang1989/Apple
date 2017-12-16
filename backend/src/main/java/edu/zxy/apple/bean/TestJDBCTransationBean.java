@@ -29,20 +29,21 @@ public class TestJDBCTransationBean
         try
         {
             session.beginTransaction();
+            
             Account account = new Account();
             account.setName("121201");
-            account.setType(AccountType.CASH);
             accountDao.add(account);
       
             Role role = new Role();
             role.setName("121201");
             role.setType(RoleType.FAMILY);
             roleDao.add(role );
-          
+            
+            session.getTransaction().commit();
         } catch (HibernateException e)
         {
             session.getTransaction().rollback();
         }
-        session.getTransaction().commit();
+        
     }
 }
