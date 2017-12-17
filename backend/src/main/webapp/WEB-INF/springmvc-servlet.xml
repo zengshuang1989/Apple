@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
     xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
     xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
-http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
     <!-- 扫描控制器包 -->
     <context:component-scan base-package="edu.zxy.apple.controller" />
     <bean id="viewResolver"
@@ -54,9 +57,12 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     
-    <bean id="RoleDao" class="edu.zxy.apple.dao.RoleDaoImpl">
-    </bean>
-    <bean id="AccountDao" class="edu.zxy.apple.dao.AccountDaoImpl">
-    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <bean id="roleDao" class="edu.zxy.apple.dao.RoleDaoImpl"></bean>
+    <bean id="accountDao" class="edu.zxy.apple.dao.AccountDaoImpl"></bean>
+    <bean id="recordDao" class="edu.zxy.apple.dao.RecordDaoImpl"></bean>
+    <bean id="testJDBCTransationBean" class="edu.zxy.apple.bean.TestJDBCTransationBean"></bean>
+    <bean id="testAnnotationTransationBean" class="edu.zxy.apple.bean.TestAnnotationTransationBean"></bean>
 
 </beans>

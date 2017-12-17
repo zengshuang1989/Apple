@@ -7,6 +7,7 @@ import org.hibernate.annotations.ValueGenerationType;
 
 @ValueGenerationType(generatedBy = FunctionLastUpdatedDatetimeGeneration.class)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FunctionLastUpdatedDatetime {
+public @interface FunctionLastUpdatedDatetime
+{
 
 }

@@ -1,13 +1,14 @@
 package edu.zxy.apple.enums;
 
 /**
- * CATEGORY_TYPE（收支类型）
-INCOME（收入）
-EXPENSES（支出）
+ * CATEGORY_TYPE锛堟敹鏀被鍨嬶級
+ * 1.INCOME锛堟敹鍏ワ級
+ * 2.EXPENSES锛堟敮鍑猴級
+ * 
  * @author 57359
  *
  */
-public enum CategoryType {
-	INCOME,
-	EXPENSES;
+public enum CategoryType
+{
+    INCOME, EXPENSES;
 }

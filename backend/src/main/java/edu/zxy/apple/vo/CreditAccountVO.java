@@ -1,18 +1,11 @@
-package edu.zxy.apple.entity;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+package edu.zxy.apple.vo;
 
 import edu.zxy.apple.enums.AccountType;
 
-@Entity
-@Table(name = "credit_account")
-public class CreditAccount extends Account
+public class CreditAccountVO extends AccountVO
 {
-
-    @Column(name = "credit_limit")
     private double creditLimit;
+    
 
     public double getCreditLimit()
     {
@@ -28,5 +21,5 @@ public class CreditAccount extends Account
     {
         return AccountType.CREDIT_CARD;
     }
-
+    
 }

@@ -1,17 +1,9 @@
-package edu.zxy.apple.entity;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+package edu.zxy.apple.vo;
 
 import edu.zxy.apple.enums.AccountType;
 
-@Entity
-@Table(name = "debit_account")
-public class DebitAccount extends Account
+public class DebitAccountVO extends AccountVO
 {
-
-    @Column(name = "over_draftFee")
     private double overdraftFee;
 
     public double getOverdraftFee()
@@ -28,5 +20,5 @@ public class DebitAccount extends Account
     {
         return AccountType.DEBT;
     }
-
+    
 }

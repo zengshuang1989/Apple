@@ -1,112 +1,101 @@
 package edu.zxy.apple.vo;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
 import edu.zxy.apple.enums.AccountType;
 
-public class AccountVO {
-	
-	private Integer id;
-	
-	private String name;
-	
-	private AccountType type;   
-	
-	private Integer roleId;
-	
-	private String remark;
-	
-	private Timestamp createdDatetime;
-	
-	private Timestamp lastUpdatedDatetime;
-	
-	private BigDecimal totalFlowIn;
-	
-	private BigDecimal totalFlowOut;
-	
-	private BigDecimal balance;
+public class AccountVO extends BaseVO
+{
 
-	public Integer getId() {
-		return id;
-	}
+    private Integer id;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    private Integer roleId;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String remark;
 
-	public AccountType getType() {
-		return type;
-	}
 
-	public void setType(AccountType accountType) {
-		this.type = accountType;
-	}
+    private BigDecimal totalFlowIn;
 
-	public Integer getRoleId() {
-		return roleId;
-	}
+    private BigDecimal totalFlowOut;
 
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
+    private BigDecimal balance;
 
-	public String getRemark() {
-		return remark;
-	}
+    public Integer getId()
+    {
+        return id;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
 
-	public Timestamp getCreatedDatetime() {
-		return createdDatetime;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public Timestamp getLastUpdatedDatetime() {
-		return lastUpdatedDatetime;
-	}
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
-	public BigDecimal getTotalFlowIn() {
-		return totalFlowIn;
-	}
+    public AccountType getType()
+    {
+        return AccountType.SAVINGS;
+    }
 
-	public BigDecimal getTotalFlowOut() {
-		return totalFlowOut;
-	}
 
-	public BigDecimal getBalance() {
-		return balance;
-	}
+    public Integer getRoleId()
+    {
+        return roleId;
+    }
 
-	public void setCreatedDatetime(Timestamp createdDatetime) {
-		this.createdDatetime = createdDatetime;
-	}
+    public void setRoleId(Integer roleId)
+    {
+        this.roleId = roleId;
+    }
 
-	public void setLastUpdatedDatetime(Timestamp lastUpdatedDatetime) {
-		this.lastUpdatedDatetime = lastUpdatedDatetime;
-	}
+    public String getRemark()
+    {
+        return remark;
+    }
 
-	public void setTotalFlowIn(BigDecimal totalFlowIn) {
-		this.totalFlowIn = totalFlowIn;
-	}
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
 
-	public void setTotalFlowOut(BigDecimal totalFlowOut) {
-		this.totalFlowOut = totalFlowOut;
-	}
+    public BigDecimal getTotalFlowIn()
+    {
+        return totalFlowIn;
+    }
 
-	public void setBalance(BigDecimal balance) {
-		this.balance = balance;
-	}
-	
-	
-	
+    public BigDecimal getTotalFlowOut()
+    {
+        return totalFlowOut;
+    }
+
+    public BigDecimal getBalance()
+    {
+        return balance;
+    }
+
+    public void setTotalFlowIn(BigDecimal totalFlowIn)
+    {
+        this.totalFlowIn = totalFlowIn;
+    }
+
+    public void setTotalFlowOut(BigDecimal totalFlowOut)
+    {
+        this.totalFlowOut = totalFlowOut;
+    }
+
+    public void setBalance(BigDecimal balance)
+    {
+        this.balance = balance;
+    }
+
 }

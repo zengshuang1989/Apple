@@ -7,6 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 
 @ValueGenerationType(generatedBy = FunctionCreationDatetimeGeneration.class)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FunctionCreationDatetime {
+public @interface FunctionCreationDatetime
+{
 
 }

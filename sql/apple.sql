@@ -61,8 +61,31 @@ CREATE TABLE record (
   PRIMARY KEY (id)
 );
 
+/*序列表*/
 drop table IF EXISTS id_gen;
 create table id_gen(
     sequence_name VARCHAR(128) NOT NULL,
     next_val INTEGER NOT NULL
 )
+
+DROP TABLE IF EXISTS credit_account;
+CREATE TABLE credit_account (
+  id        INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  credit_limit     DOUBLE,
+  PRIMARY KEY (ID)
+);
+
+DROP TABLE IF EXISTS debit_account;
+CREATE TABLE debit_account (
+  id        INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  over_draftFee     DOUBLE,
+  PRIMARY KEY (ID)
+);
+
+ALTER TABLE record
+ADD CONSTRAINT FK_FLOWOUT_ACCT_ID
+FOREIGN KEY (flowout_acct_id) REFERENCES account;
+
+ALTER TABLE record
+ADD CONSTRAINT FK_FLOWOUT_ACCT_ID
+FOREIGN KEY (flowin_acct_id) REFERENCES account;
