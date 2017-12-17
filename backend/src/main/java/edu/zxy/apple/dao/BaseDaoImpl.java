@@ -12,10 +12,14 @@ public class BaseDaoImpl<T> implements BaseDao<T>
     @Autowired
     private SessionFactory sessionFactory;
 
+    public Session getSession()
+    {
+        return sessionFactory.getCurrentSession();
+    }
     @Override
     public void add(T t)
     {
-        Session session = sessionFactory.getCurrentSession();
+        Session session = getSession();
 //        try
 //        {
 //            session.beginTransaction();
