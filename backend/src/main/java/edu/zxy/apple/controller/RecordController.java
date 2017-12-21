@@ -1,6 +1,5 @@
 package edu.zxy.apple.controller;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.zxy.apple.dao.RecordDao;
 import edu.zxy.apple.entity.Record;
+import edu.zxy.apple.vo.RecordCondVO;
 import edu.zxy.apple.vo.RecordVO;
 
 @Transactional
@@ -75,10 +75,10 @@ public class RecordController
     }
 
     @RequestMapping(value = "/queryRecord", method = RequestMethod.POST)
-    public @ResponseBody List<RecordVO> queryRecord(@RequestBody Integer recordId)
+    public @ResponseBody List<RecordVO> queryRecord(@RequestBody RecordCondVO recordCondVO)
     {
         List<RecordVO> recordVOList = new ArrayList<RecordVO>();
-        List<Record> recordList = recordDao.moneyBetweenQuery(new BigDecimal(0), new BigDecimal(100));
+        List<Record> recordList = recordDao.queryRecord(recordCondVO);
         
         RecordVO recordVO=null;
         for(Record tRecord:recordList)
