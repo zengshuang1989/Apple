@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
+import edu.zxy.apple.enums.CategoryType;
+
 public class RecordCondVO
 {
     /**
@@ -28,7 +30,7 @@ public class RecordCondVO
     /**
      * 收支分类
      */
-    private List<BigDecimal> categoryIdList;    
+    private CategoryType categoryType;    
     
     /**
      * 备注，模糊查询
@@ -85,14 +87,14 @@ public class RecordCondVO
         this.acctIdList = acctIdList;
     }
 
-    public List<BigDecimal> getCategoryIdList()
+    public CategoryType getCategoryType()
     {
-        return categoryIdList;
+        return categoryType;
     }
 
-    public void setCategoryIdList(List<BigDecimal> categoryIdList)
+    public void setCategoryType(CategoryType categoryType)
     {
-        this.categoryIdList = categoryIdList;
+        this.categoryType = categoryType;
     }
 
     public String getRemark()

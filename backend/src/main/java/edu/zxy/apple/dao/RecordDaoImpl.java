@@ -13,6 +13,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import edu.zxy.apple.entity.Account;
+import edu.zxy.apple.entity.Category;
 import edu.zxy.apple.entity.Record;
 import edu.zxy.apple.vo.RecordCondVO;
 
@@ -28,6 +29,7 @@ public class RecordDaoImpl extends BaseDaoImpl<Record> implements RecordDao
         Root<Record> root = criteria.from(Record.class);
         Join<Record, Account> flowoutAcctJoin = root.join("flowoutAcct",JoinType.LEFT);
         Join<Record, Account> flowinAcctJoin = root.join("flowinAcct",JoinType.LEFT);
+        Join<Record, Category> ownCategoryJoin = root.join("ownCategory",JoinType.LEFT);
         criteria.select(root);
         List<Predicate> predicatesList = new ArrayList<Predicate>();
 
@@ -65,6 +67,13 @@ public class RecordDaoImpl extends BaseDaoImpl<Record> implements RecordDao
         }
         
         addRestriction(accountRestriction,predicatesList);
+        
+        Predicate categoryTypeRestriction = null;
+        if(null != recordCondVO.getCategoryType())
+        {
+            categoryTypeRestriction = crb.equal(ownCategoryJoin.get("type"), recordCondVO.getCategoryType());
+        }
+        addRestriction(categoryTypeRestriction,predicatesList);
         
         Predicate remarkRestriction = null;
         if(null != recordCondVO.getRemark() && !recordCondVO.getRemark().isEmpty())
