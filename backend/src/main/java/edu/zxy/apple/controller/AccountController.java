@@ -12,7 +12,7 @@ import edu.zxy.apple.dao.AccountDao;
 import edu.zxy.apple.entity.Account;
 import edu.zxy.apple.vo.AccountVO;
 
-@Transactional
+//@Transactional
 @Controller
 public class AccountController
 {

@@ -23,6 +23,7 @@
         <mapping class="edu.zxy.apple.entity.CreditAccount" />
         <mapping class="edu.zxy.apple.entity.DebitAccount" />
         <mapping class="edu.zxy.apple.entity.Record" />
+        <mapping class="edu.zxy.apple.entity.Category" />
 
     </session-factory>
 

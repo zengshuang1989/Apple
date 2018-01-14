@@ -81,10 +81,15 @@ CREATE TABLE debit_account (
   PRIMARY KEY (ID)
 );
 
-/*ALTER TABLE record
+ALTER TABLE record
 ADD CONSTRAINT FK_FLOWOUT_ACCT_ID
 FOREIGN KEY (flowout_acct_id) REFERENCES account;
 
 ALTER TABLE record
 ADD CONSTRAINT FK_FLOWIN_ACCT_ID
-FOREIGN KEY (flowin_acct_id) REFERENCES account;*/
+FOREIGN KEY (flowin_acct_id) REFERENCES account;
+
+ALTER TABLE record
+ADD CONSTRAINT FK_CATEGORY_ID
+FOREIGN KEY (category_id) REFERENCES category;
+

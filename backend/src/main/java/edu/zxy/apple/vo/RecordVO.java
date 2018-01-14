@@ -3,12 +3,13 @@ package edu.zxy.apple.vo;
 import java.math.BigDecimal;
 
 import edu.zxy.apple.entity.Account;
+import edu.zxy.apple.entity.Category;
 
 public class RecordVO extends BaseVO
 {
     private Integer id;
 
-    private Integer categoryId;
+    private Category category;
 
     private Account flowoutAcct;
 
@@ -28,14 +29,14 @@ public class RecordVO extends BaseVO
         this.id = id;
     }
 
-    public Integer getCategoryId()
+    public Category getCategory()
     {
-        return categoryId;
+        return category;
     }
 
-    public void setCategoryId(Integer categoryId)
+    public void setCategory(Category category)
     {
-        this.categoryId = categoryId;
+        this.category = category;
     }
 
     public Account getFlowoutAcct()

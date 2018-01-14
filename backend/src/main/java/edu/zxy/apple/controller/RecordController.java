@@ -28,7 +28,7 @@ public class RecordController
     public @ResponseBody void addRecord(@RequestBody RecordVO recordVO)
     {
         Record record = new Record();
-        record.setCategoryId(recordVO.getCategoryId());
+        record.setOwnCategory(null);;
         record.setMoney(recordVO.getMoney());
         record.setRemark(recordVO.getRemark());
         record.setFlowinAcct(recordVO.getFlowinAcct());
@@ -49,7 +49,7 @@ public class RecordController
     {
         Record record = new Record();
         record.setId(recordVO.getId());
-        record.setCategoryId(recordVO.getCategoryId());
+        record.setOwnCategory(null);
         record.setMoney(recordVO.getMoney());
         record.setRemark(recordVO.getRemark());
         record.setFlowinAcct(recordVO.getFlowinAcct());
@@ -63,7 +63,7 @@ public class RecordController
         Record record = recordDao.get(recordId);
         RecordVO recordVO = new RecordVO();
         recordVO.setId(record.getId());
-        recordVO.setCategoryId(record.getCategoryId());
+        recordVO.setCategory(null);
         recordVO.setMoney(record.getMoney());
         recordVO.setRemark(record.getRemark());
         recordVO.setFlowinAcct(record.getFlowinAcct());
@@ -85,7 +85,7 @@ public class RecordController
         {
             recordVO = new RecordVO();
             recordVO.setId(tRecord.getId());
-            recordVO.setCategoryId(tRecord.getCategoryId());
+            recordVO.setCategory(tRecord.getOwnCategory());
             recordVO.setMoney(tRecord.getMoney());
             recordVO.setRemark(tRecord.getRemark());
             recordVO.setFlowinAcct(tRecord.getFlowinAcct());
