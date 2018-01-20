@@ -1,36 +1,35 @@
 package edu.zxy.apple.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
-import edu.zxy.apple.entity.Account;
-import edu.zxy.apple.entity.Category;
+import edu.zxy.apple.condition.manage.CondProcessManage;
+import edu.zxy.apple.condition.vo.BaseCondVO;
 import edu.zxy.apple.entity.Record;
-import edu.zxy.apple.vo.RecordCondVO;
 
 public class RecordDaoImpl extends BaseDaoImpl<Record> implements RecordDao
 {
 
     @Override
-    public List<Record> queryRecord(RecordCondVO recordCondVO)
+    public List<Record> queryRecord(List<BaseCondVO> condList)
     {
         Session session = getSession();
         CriteriaBuilder crb = session.getCriteriaBuilder();
         CriteriaQuery<Record> criteria = crb.createQuery(Record.class);
         Root<Record> root = criteria.from(Record.class);
-        Join<Record, Account> flowoutAcctJoin = root.join("flowoutAcct",JoinType.LEFT);
+        criteria.select(root);
+        List<Predicate> predicatesList = CondProcessManage.getInstance().execute(condList, crb, root);
+        
+       /* Join<Record, Account> flowoutAcctJoin = root.join("flowoutAcct",JoinType.LEFT);
         Join<Record, Account> flowinAcctJoin = root.join("flowinAcct",JoinType.LEFT);
         Join<Record, Category> ownCategoryJoin = root.join("ownCategory",JoinType.LEFT);
-        criteria.select(root);
+        
         List<Predicate> predicatesList = new ArrayList<Predicate>();
 
         // 金额
@@ -80,19 +79,19 @@ public class RecordDaoImpl extends BaseDaoImpl<Record> implements RecordDao
         {
             remarkRestriction = crb.like(root.get("remark"), "%"+recordCondVO.getRemark()+"%");
         }
-        addRestriction(remarkRestriction,predicatesList);
+        addRestriction(remarkRestriction,predicatesList);*/
         
         criteria.where(predicatesList.toArray(new Predicate[predicatesList.size()]));
 
         return session.createQuery(criteria).getResultList();
     }
     
-    private void addRestriction(Predicate predicate, List<Predicate> predicateList)
+    /*private void addRestriction(Predicate predicate, List<Predicate> predicateList)
     {
         if(predicate != null)
         {
             predicateList.add(predicate);
         }
-    }
+    }*/
 
 }

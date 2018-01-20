@@ -64,5 +64,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     <bean id="recordDao" class="edu.zxy.apple.dao.RecordDaoImpl"></bean>
     <bean id="testJDBCTransationBean" class="edu.zxy.apple.bean.TestJDBCTransationBean"></bean>
     <bean id="testAnnotationTransationBean" class="edu.zxy.apple.bean.TestAnnotationTransationBean"></bean>
+    <bean id="timeCondProcessImpl" class="edu.zxy.apple.condition.process.TimeCondProcessImpl" init-method="registerProcess"></bean>
+    <bean id="moneyCondProcessImpl" class="edu.zxy.apple.condition.process.MoneyCondProcessImpl" init-method="registerProcess"></bean>
 
 </beans>

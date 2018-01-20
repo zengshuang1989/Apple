@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.zxy.apple.condition.vo.BaseCondVO;
 import edu.zxy.apple.dao.RecordDao;
 import edu.zxy.apple.entity.Record;
-import edu.zxy.apple.vo.RecordCondVO;
 import edu.zxy.apple.vo.RecordVO;
 
 @Transactional
@@ -75,10 +75,10 @@ public class RecordController
     }
 
     @RequestMapping(value = "/queryRecord", method = RequestMethod.POST)
-    public @ResponseBody List<RecordVO> queryRecord(@RequestBody RecordCondVO recordCondVO)
+    public @ResponseBody List<RecordVO> queryRecord(@RequestBody List<BaseCondVO> condList)
     {
         List<RecordVO> recordVOList = new ArrayList<RecordVO>();
-        List<Record> recordList = recordDao.queryRecord(recordCondVO);
+        List<Record> recordList = recordDao.queryRecord(condList);
         
         RecordVO recordVO=null;
         for(Record tRecord:recordList)
