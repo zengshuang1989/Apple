@@ -1,4 +1,4 @@
-package edu.zxy.apple.condition.manage;
+package edu.zxy.apple.condition.managemet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,29 +9,31 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import edu.zxy.apple.condition.process.CondProcessInf;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import edu.zxy.apple.condition.process.CondProcessorInf;
 import edu.zxy.apple.condition.vo.BaseCondVO;
 
-public class CondProcessManage
+public class CondProcessorsManager
 {
-    private static CondProcessManage condProcessManage = null;
+    private static CondProcessorsManager condProcessManage = null;
 
-    private Map<String, CondProcessInf> condProcessMap = new HashMap<String, CondProcessInf>();
+    private Map<String, CondProcessorInf> condProcessMap = new HashMap<String, CondProcessorInf>();
 
-    private CondProcessManage()
+    private CondProcessorsManager()
     {
     }
 
-    public static CondProcessManage getInstance()
+    public static CondProcessorsManager getInstance()
     {
         if (null == condProcessManage)
         {
-            condProcessManage = new CondProcessManage();
+            condProcessManage = new CondProcessorsManager();
         }
         return condProcessManage;
     }
 
-    public void registerCondProcess(String type, CondProcessInf condProcess)
+    public void registerCondProcess(String type, CondProcessorInf condProcess)
     {
         condProcessMap.put(type, condProcess);
     }
@@ -40,9 +42,14 @@ public class CondProcessManage
     {
         List<Predicate> predicateList = new ArrayList<Predicate>();
         Predicate predicateItem = null;
-        CondProcessInf condProcessor = null;
-        for (BaseCondVO condVO : condList)
-        {
+        CondProcessorInf condProcessor = null;
+        System.out.println("size:" + condList.size());
+        ObjectMapper INSTANCE = new ObjectMapper();
+       
+
+        for (int i=0;i<condList.size();i++)
+        {   
+            BaseCondVO condVO = INSTANCE.convertValue( condList.get(i), BaseCondVO.class);
             condProcessor = condProcessMap.get(condVO.getType());
             if (null != condProcessor)
             {

@@ -1,29 +1,27 @@
 package edu.zxy.apple.condition.vo;
 
-import java.math.BigDecimal;
-
 public class MoneyCondVO extends BaseCondVO
 {
-    private BigDecimal minMoney;
+    private double minMoney;
 
-    private BigDecimal maxMoney;
+    private double maxMoney;
 
-    public BigDecimal getMinMoney()
+    public double getMinMoney()
     {
         return minMoney;
     }
 
-    public void setMinMoney(BigDecimal minMoney)
+    public void setMinMoney(double minMoney)
     {
         this.minMoney = minMoney;
     }
 
-    public BigDecimal getMaxMoney()
+    public double getMaxMoney()
     {
         return maxMoney;
     }
 
-    public void setMaxMoney(BigDecimal maxMoney)
+    public void setMaxMoney(double maxMoney)
     {
         this.maxMoney = maxMoney;
     }

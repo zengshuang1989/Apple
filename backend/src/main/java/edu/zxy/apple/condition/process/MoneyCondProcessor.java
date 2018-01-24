@@ -4,17 +4,17 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import edu.zxy.apple.condition.manage.CondProcessManage;
+import edu.zxy.apple.condition.managemet.CondProcessorsManager;
 import edu.zxy.apple.condition.vo.BaseCondVO;
 import edu.zxy.apple.condition.vo.MoneyCondVO;
 
-public class MoneyCondProcessImpl implements CondProcessInf
+public class MoneyCondProcessor implements CondProcessorInf
 {
 
     @Override
-    public void registerProcess()
+    public void register()
     {
-        CondProcessManage.getInstance().registerCondProcess("money", this);
+        CondProcessorsManager.getInstance().registerCondProcess("money", this);
     }
 
     @Override
@@ -23,15 +23,12 @@ public class MoneyCondProcessImpl implements CondProcessInf
         MoneyCondVO moneyCondVO = (MoneyCondVO) cond;
         // 金额
         Predicate moneyRestriction = null;
-        if (null != moneyCondVO.getMinMoney() && null != moneyCondVO.getMaxMoney())
+        if (0D != moneyCondVO.getMaxMoney())
         {
             moneyRestriction = crb.between(root.get("money"), moneyCondVO.getMinMoney(), moneyCondVO.getMaxMoney());
-        } else if (null != moneyCondVO.getMinMoney() && null == moneyCondVO.getMaxMoney())
+        } else if (0D == moneyCondVO.getMaxMoney())
         {
             moneyRestriction = crb.greaterThanOrEqualTo(root.get("money"), moneyCondVO.getMinMoney());
-        } else if (null == moneyCondVO.getMinMoney() && null != moneyCondVO.getMaxMoney())
-        {
-            moneyRestriction = crb.lessThanOrEqualTo(root.get("money"), moneyCondVO.getMaxMoney());
         }
         return moneyRestriction;
     }

@@ -1,7 +1,5 @@
 package edu.zxy.apple.vo;
 
-import java.math.BigDecimal;
-
 import edu.zxy.apple.entity.Account;
 import edu.zxy.apple.entity.Category;
 
@@ -15,7 +13,7 @@ public class RecordVO extends BaseVO
 
     private Account flowinAcct;
 
-    private BigDecimal money;
+    private double money;
     
     private String remark;
 
@@ -59,12 +57,12 @@ public class RecordVO extends BaseVO
         this.flowinAcct = flowinAcct;
     }
 
-    public BigDecimal getMoney()
+    public double getMoney()
     {
         return money;
     }
 
-    public void setMoney(BigDecimal money)
+    public void setMoney(double money)
     {
         this.money = money;
     }

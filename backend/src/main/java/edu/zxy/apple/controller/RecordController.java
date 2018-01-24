@@ -28,7 +28,7 @@ public class RecordController
     public @ResponseBody void addRecord(@RequestBody RecordVO recordVO)
     {
         Record record = new Record();
-        record.setOwnCategory(null);;
+        record.setOwnCategory(recordVO.getCategory());;
         record.setMoney(recordVO.getMoney());
         record.setRemark(recordVO.getRemark());
         record.setFlowinAcct(recordVO.getFlowinAcct());

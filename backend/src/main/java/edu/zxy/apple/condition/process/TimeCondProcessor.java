@@ -4,16 +4,16 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import edu.zxy.apple.condition.manage.CondProcessManage;
+import edu.zxy.apple.condition.managemet.CondProcessorsManager;
 import edu.zxy.apple.condition.vo.BaseCondVO;
 import edu.zxy.apple.condition.vo.TimeCondVO;
 
-public class TimeCondProcessImpl implements CondProcessInf
+public class TimeCondProcessor implements CondProcessorInf
 {
     @Override
-    public void registerProcess()
+    public void register()
     {
-        CondProcessManage.getInstance().registerCondProcess("time", this);
+        CondProcessorsManager.getInstance().registerCondProcess("time", this);
     }
     
     @Override

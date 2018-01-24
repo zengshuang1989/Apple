@@ -9,7 +9,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
-import edu.zxy.apple.condition.manage.CondProcessManage;
+import edu.zxy.apple.condition.managemet.CondProcessorsManager;
 import edu.zxy.apple.condition.vo.BaseCondVO;
 import edu.zxy.apple.entity.Record;
 
@@ -24,7 +24,7 @@ public class RecordDaoImpl extends BaseDaoImpl<Record> implements RecordDao
         CriteriaQuery<Record> criteria = crb.createQuery(Record.class);
         Root<Record> root = criteria.from(Record.class);
         criteria.select(root);
-        List<Predicate> predicatesList = CondProcessManage.getInstance().execute(condList, crb, root);
+        List<Predicate> predicatesList = CondProcessorsManager.getInstance().execute(condList, crb, root);
         
        /* Join<Record, Account> flowoutAcctJoin = root.join("flowoutAcct",JoinType.LEFT);
         Join<Record, Account> flowinAcctJoin = root.join("flowinAcct",JoinType.LEFT);

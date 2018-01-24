@@ -30,7 +30,7 @@ public class Record extends Base
     @JoinColumn(name = "flowin_acct_id")
     private Account flowinAcct;
 
-    private BigDecimal money;
+    private double money;
 
     private String remark;
 
@@ -76,12 +76,12 @@ public class Record extends Base
         this.flowinAcct = flowinAcct;
     }
 
-    public BigDecimal getMoney()
+    public double getMoney()
     {
         return money;
     }
 
-    public void setMoney(BigDecimal money)
+    public void setMoney(double money)
     {
         this.money = money;
     }

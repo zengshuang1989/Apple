@@ -6,9 +6,9 @@ import javax.persistence.criteria.Root;
 
 import edu.zxy.apple.condition.vo.BaseCondVO;
 
-public interface CondProcessInf
+public interface CondProcessorInf
 {
-    public void registerProcess();
+    public void register();
     
     public Predicate process(CriteriaBuilder crb, Root root,BaseCondVO cond);
 }
