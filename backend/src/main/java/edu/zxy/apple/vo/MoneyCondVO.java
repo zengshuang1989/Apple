@@ -1,4 +1,4 @@
-package edu.zxy.apple.condition.vo;
+package edu.zxy.apple.vo;
 
 public class MoneyCondVO extends BaseCondVO
 {

@@ -10,8 +10,8 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import edu.zxy.apple.condition.managemet.CondProcessorsManager;
-import edu.zxy.apple.condition.vo.BaseCondVO;
 import edu.zxy.apple.entity.Record;
+import edu.zxy.apple.vo.BaseCondVO;
 
 public class RecordDaoImpl extends BaseDaoImpl<Record> implements RecordDao
 {

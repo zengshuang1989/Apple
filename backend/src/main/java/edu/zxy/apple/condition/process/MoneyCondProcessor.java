@@ -5,8 +5,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import edu.zxy.apple.condition.managemet.CondProcessorsManager;
-import edu.zxy.apple.condition.vo.BaseCondVO;
-import edu.zxy.apple.condition.vo.MoneyCondVO;
+import edu.zxy.apple.vo.BaseCondVO;
+import edu.zxy.apple.vo.MoneyCondVO;
 
 public class MoneyCondProcessor implements CondProcessorInf
 {

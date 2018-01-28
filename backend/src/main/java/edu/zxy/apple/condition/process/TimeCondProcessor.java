@@ -5,8 +5,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import edu.zxy.apple.condition.managemet.CondProcessorsManager;
-import edu.zxy.apple.condition.vo.BaseCondVO;
-import edu.zxy.apple.condition.vo.TimeCondVO;
+import edu.zxy.apple.vo.BaseCondVO;
+import edu.zxy.apple.vo.TimeCondVO;
 
 public class TimeCondProcessor implements CondProcessorInf
 {

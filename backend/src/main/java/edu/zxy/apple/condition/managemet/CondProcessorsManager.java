@@ -12,7 +12,7 @@ import javax.persistence.criteria.Root;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.zxy.apple.condition.process.CondProcessorInf;
-import edu.zxy.apple.condition.vo.BaseCondVO;
+import edu.zxy.apple.vo.BaseCondVO;
 
 public class CondProcessorsManager
 {
@@ -43,7 +43,6 @@ public class CondProcessorsManager
         List<Predicate> predicateList = new ArrayList<Predicate>();
         Predicate predicateItem = null;
         CondProcessorInf condProcessor = null;
-        System.out.println("size:" + condList.size());
         ObjectMapper INSTANCE = new ObjectMapper();
        
 

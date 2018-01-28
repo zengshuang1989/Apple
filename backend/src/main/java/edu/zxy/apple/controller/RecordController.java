@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zxy.apple.condition.vo.BaseCondVO;
+import edu.zxy.apple.vo.BaseCondVO;
 import edu.zxy.apple.dao.RecordDao;
 import edu.zxy.apple.entity.Record;
 import edu.zxy.apple.vo.RecordVO;
