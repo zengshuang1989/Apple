@@ -2,7 +2,6 @@ package edu.zxy.apple.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +18,9 @@ public class Record extends Base
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "recordGen")
     private Integer id;
 
-    @Column(name = "category_id")
-    private Integer categoryId;
+    @OneToOne
+    @JoinColumn(name = "category_id")
+    private Category ownCategory;
 
     @OneToOne
     @JoinColumn(name = "flowout_acct_id")
@@ -30,7 +30,7 @@ public class Record extends Base
     @JoinColumn(name = "flowin_acct_id")
     private Account flowinAcct;
 
-    private BigDecimal money;
+    private double money;
 
     private String remark;
 
@@ -45,16 +45,16 @@ public class Record extends Base
         this.id = id;
     }
 
-    public Integer getCategoryId()
+
+    public Category getOwnCategory()
     {
-        return categoryId;
+        return ownCategory;
     }
 
-    public void setCategoryId(Integer categoryId)
+    public void setOwnCategory(Category ownCategory)
     {
-        this.categoryId = categoryId;
+        this.ownCategory = ownCategory;
     }
-
 
     public Account getFlowoutAcct()
     {
@@ -76,12 +76,12 @@ public class Record extends Base
         this.flowinAcct = flowinAcct;
     }
 
-    public BigDecimal getMoney()
+    public double getMoney()
     {
         return money;
     }
 
-    public void setMoney(BigDecimal money)
+    public void setMoney(double money)
     {
         this.money = money;
     }

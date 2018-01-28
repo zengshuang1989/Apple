@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.zxy.apple.bean.TestAnnotationTransationBean;
-import edu.zxy.apple.bean.TestJDBCTransationBean;
+
 
 @Controller
 public class TestAnnotationTransationController

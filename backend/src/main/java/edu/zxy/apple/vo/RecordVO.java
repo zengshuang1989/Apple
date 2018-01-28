@@ -1,20 +1,19 @@
 package edu.zxy.apple.vo;
 
-import java.math.BigDecimal;
-
 import edu.zxy.apple.entity.Account;
+import edu.zxy.apple.entity.Category;
 
 public class RecordVO extends BaseVO
 {
     private Integer id;
 
-    private Integer categoryId;
+    private Category category;
 
     private Account flowoutAcct;
 
     private Account flowinAcct;
 
-    private BigDecimal money;
+    private double money;
     
     private String remark;
 
@@ -28,14 +27,14 @@ public class RecordVO extends BaseVO
         this.id = id;
     }
 
-    public Integer getCategoryId()
+    public Category getCategory()
     {
-        return categoryId;
+        return category;
     }
 
-    public void setCategoryId(Integer categoryId)
+    public void setCategory(Category category)
     {
-        this.categoryId = categoryId;
+        this.category = category;
     }
 
     public Account getFlowoutAcct()
@@ -58,12 +57,12 @@ public class RecordVO extends BaseVO
         this.flowinAcct = flowinAcct;
     }
 
-    public BigDecimal getMoney()
+    public double getMoney()
     {
         return money;
     }
 
-    public void setMoney(BigDecimal money)
+    public void setMoney(double money)
     {
         this.money = money;
     }

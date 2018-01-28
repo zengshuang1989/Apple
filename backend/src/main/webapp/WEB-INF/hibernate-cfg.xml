@@ -10,8 +10,8 @@
             org.hibernate.dialect.MySQLDialect
         </property>
 
-        <property name="current_session_context_class">thread</property>
-
+        <!--  <property name="current_session_context_class">thread</property>
+-->
         <property name="cache.provider_class">
             org.hibernate.cache.NoCacheProvider
         </property>
@@ -23,6 +23,7 @@
         <mapping class="edu.zxy.apple.entity.CreditAccount" />
         <mapping class="edu.zxy.apple.entity.DebitAccount" />
         <mapping class="edu.zxy.apple.entity.Record" />
+        <mapping class="edu.zxy.apple.entity.Category" />
 
     </session-factory>
 
