@@ -66,5 +66,8 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     <bean id="testAnnotationTransationBean" class="edu.zxy.apple.bean.TestAnnotationTransationBean"></bean>
     <bean id="timeCondProcessor" class="edu.zxy.apple.condition.process.TimeCondProcessor" init-method="register"></bean>
     <bean id="moneyCondProcessor" class="edu.zxy.apple.condition.process.MoneyCondProcessor" init-method="register"></bean>
+    <bean id="remarkCondProcessor" class="edu.zxy.apple.condition.process.RemarkCondProcessor" init-method="register"></bean>
+    <bean id="acctListCondProcessor" class="edu.zxy.apple.condition.process.AcctListCondProcessor" init-method="register"></bean>
+    <bean id="categoryTypeCondProcessor" class="edu.zxy.apple.condition.process.CategoryTypeCondProcessor" init-method="register"></bean>
 
 </beans>

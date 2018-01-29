@@ -10,5 +10,5 @@ public interface CondProcessorInf
 {
     public void register();
     
-    public Predicate process(CriteriaBuilder crb, Root root,BaseCondVO cond);
+    public Predicate process(CriteriaBuilder crb, Root root,String cond);
 }
