@@ -2,6 +2,7 @@ package edu.zxy.apple.condition.managemet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.zxy.apple.condition.process.CondProcessorInf;
@@ -43,16 +45,22 @@ public class CondProcessorsManager
         List<Predicate> predicateList = new ArrayList<Predicate>();
         Predicate predicateItem = null;
         CondProcessorInf condProcessor = null;
-        ObjectMapper INSTANCE = new ObjectMapper();
+        ObjectMapper objectMap = new ObjectMapper();
        
-
         for (int i=0;i<condList.size();i++)
         {   
-            BaseCondVO condVO = INSTANCE.convertValue( condList.get(i), BaseCondVO.class);
-            condProcessor = condProcessMap.get(condVO.getType());
+            LinkedHashMap hashMap = objectMap.convertValue( condList.get(i), LinkedHashMap.class);
+            condProcessor = condProcessMap.get(hashMap.get("type"));
             if (null != condProcessor)
             {
-                predicateItem = condProcessor.process(crb, root, condVO);
+                try
+                {
+                    predicateItem = condProcessor.process(crb, root, objectMap.writeValueAsString(condList.get(i)));
+                } catch (JsonProcessingException e)
+                {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
             if (null != predicateItem)
             {

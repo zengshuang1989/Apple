@@ -1,8 +1,14 @@
 package edu.zxy.apple.condition.process;
 
+import java.io.IOException;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.zxy.apple.condition.managemet.CondProcessorsManager;
 import edu.zxy.apple.vo.BaseCondVO;
@@ -18,9 +24,17 @@ public class MoneyCondProcessor implements CondProcessorInf
     }
 
     @Override
-    public Predicate process(CriteriaBuilder crb, Root root, BaseCondVO cond)
+    public Predicate process(CriteriaBuilder crb, Root root, String cond)
     {
-        MoneyCondVO moneyCondVO = (MoneyCondVO) cond;
+        MoneyCondVO moneyCondVO = null;
+        try
+        {
+            moneyCondVO = (MoneyCondVO) new ObjectMapper().readValue(cond, MoneyCondVO.class);
+        } catch (IOException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         // 金额
         Predicate moneyRestriction = null;
         if (0D != moneyCondVO.getMaxMoney())
