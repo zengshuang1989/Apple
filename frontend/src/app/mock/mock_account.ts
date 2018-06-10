@@ -1,4 +1,4 @@
-import { Account } from "./account";
+import { Account } from "../entity/account";
 
 export const ACCOUNTS:Account[]=[
     {id:1,name:'xiao wang',type:'cash',status:'active',balance:100,remark:'xiao wang de zhanghu.'},

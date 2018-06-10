@@ -6,19 +6,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { AppComponent } from './app.component';
-import { AccountService } from './account.service';
+import { AccountService } from './service/account.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { AccountsComponent } from './accounts/accounts.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule.forRoot()
+    NgZorroAntdModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [AccountService],
   bootstrap: [AppComponent]
