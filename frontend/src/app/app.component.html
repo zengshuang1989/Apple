@@ -1,8 +1,12 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<nz-layout>
-  <nz-sider>Sider</nz-sider>
-  <nz-layout>
-    <nz-header>Header</nz-header>
-    <nz-footer>Footer</nz-footer>
-  </nz-layout>
-</nz-layout>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    Records
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['/accounts']">Accounts</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    Categories
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<router-outlet></router-outlet>

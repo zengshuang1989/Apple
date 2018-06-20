@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Account } from './account';
-import { ACCOUNTS } from './mock_account';
+import { Account } from '../entity/account';
+import { ACCOUNTS } from '../mock/mock_account';
 
 @Injectable()
 export class AccountService {
